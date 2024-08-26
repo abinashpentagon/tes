@@ -1,0 +1,340 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#key-aspects-coch"><a href="#key-aspects-coch">Key Aspects of CoC</a></li>
+            <li class="list-item-toc" id="#identifying-coch"><a href="#identifying-coch">Identifying CoC</a></li>
+            <li class="list-item-toc" id="#examples-coch"><a href="#examples-coch">Examples of CoC</a></li>
+            <li class="list-item-toc" id="#trading-strategies-coch"><a href="#trading-strategies-coch">Trading Strategies CoC</a></li>
+
+          </ul>
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Technical Analysis</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+                <h5>Change of Character (COCH)</h5>
+                <p>Change of Character (COCH) refers to a noticeable shift in the market's behavior, structure, or price action. This shift often signals a potential change in the prevailing trend, momentum, or market conditions.</p>
+                <p>Image:</p>
+            
+            <section id="key-aspects-coch">
+                <h5>Key Aspects of Change of Character</h5>
+                
+                <section id="trend-shifts-coch">
+
+                    <h6>Trend Shifts</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>From Uptrend to Downtrend:</b> A Change of Character might occur when a market that was previously making higher highs and higher lows starts making lower highs and lower lows.</p>
+                        </li>
+                        <li>
+                            <p><b>From Downtrend to Uptrend:</b> Conversely, a market that was making lower lows and lower highs may start making higher highs and higher lows.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="price-action-patterns-coch">
+                    <h6>Price Action Patterns</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Break of Structure:</b> A significant break in the previous price structure (e.g., breaking below a previous low in an uptrend) can indicate a Change of Character.</p>
+                        </li>
+                        <li>
+                            <p><b>Reversal Patterns:</b> Patterns like head and shoulders, double tops/bottoms, or inverse head and shoulders may signal a Change of Character.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="volume-analysis-coch">
+                    <h6>Volume Analysis</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Volume Spikes:</b> Changes in trading volume can accompany a Change of Character, where increased volume might confirm the shift in market behavior.</p>
+                        </li>
+                        <li>
+                            <p><b>Divergence:</b> Divergence between price and volume can also signal a potential Change of Character.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="indicators-signals-coch">
+                    <h6>Indicators and Signals</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Technical Indicators:</b> Moving averages, Relative Strength Index (RSI), or Moving Average Convergence Divergence (MACD) can show signs of a Change of Character when their signals diverge from the price trend.</p>
+                        </li>
+                        <li>
+                            <p><b>Trendlines and Channels:</b> Breaking of trendlines or channels may indicate a shift in the market's character.</p>
+                        </li>
+                    </ul>
+
+                </section>
+            </section>
+            
+            <section id="identifying-coch">
+                <h5>Identifying Change of Character</h5>
+                
+                <section id="chart-patterns-coch">
+                    <h6>Chart Patterns</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Trendline Breaks:</b> Look for breaks in established trendlines or channels, indicating a potential change in the trend.</p>
+                        </li>
+                        <li>
+                            <p><b>Support and Resistance:</b> Identify when the price breaks significant support or resistance levels, which can signal a shift in market behavior.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="volume-confirmation-coch">
+                    <h6>Volume Confirmation</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Increased Volume:</b> A significant change in volume accompanying a price move can confirm a Change of Character.</p>
+                        </li>
+                        <li>
+                            <p><b>Volume Analysis:</b> Compare current volume with historical patterns to assess the significance of the change.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="technical-indicators-coch">
+                    <h6>Technical Indicators</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Moving Averages:</b> Watch for crossovers or changes in the slope of moving averages.</p>
+                        </li>
+                        <li>
+                            <p><b>RSI and MACD:</b> Look for divergences or crossovers that indicate a potential shift in momentum.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="market-context-coch">
+                    <h6>Market Context</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>News and Events:</b> Be aware of market news or events that could trigger a Change of Character.</p>
+                        </li>
+                        <li>
+                            <p><b>Economic Indicators:</b> Monitor economic indicators that might influence market trends.</p>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            
+            <section id="examples-coch">
+                <h5>Examples of Change of Character</h5>
+                
+                <section id="bullish-change">
+                    <h6>Bullish Change of Character</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Scenario:</b> A stock has been in a downtrend, making lower lows and lower highs. The price breaks above a previous high, accompanied by increased volume.</p>
+                        </li>
+                        <li>
+                            <p><b>Interpretation:</b> This break might indicate a potential shift from a bearish to a bullish trend, suggesting buying opportunities.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="bearish-change">
+                    <h6>Bearish Change of Character</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Scenario:</b> A stock has been in an uptrend, making higher highs and higher lows. The price breaks below a previous low, and volume spikes.</p>
+                        </li>
+                        <li>
+                            <p><b>Interpretation:</b> This break might indicate a potential shift from a bullish to a bearish trend, suggesting selling opportunities.</p>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            
+            <section id="trading-strategies-coch">
+                <h5>Trading Strategies Involving Change of Character</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <p><b>Entry Points:</b> Look for confirmation of a Change of Character before entering a trade. Confirm with volume, indicators, and patterns.</p>
+                    </li>
+                    <li>
+                        <p><b>Stop-Loss and Take-Profit:</b> Set stop-loss orders to manage risk if the market does not move as expected. Determine take-profit levels based on new trend projections.</p>
+                    </li>
+                    <li>
+                        <p><b>Monitoring:</b> Continuously monitor the market for further signs of confirmation or reversal of the Change of Character.</p>
+                    </li>
+                </ul>
+            </section>
+            
+                <h5>Conclusion</h5>
+                <p>A Change of Character (COCH) is an essential concept for traders to identify potential shifts in market trends and dynamics. By understanding and recognizing these changes, traders can adjust their strategies to capitalize on new opportunities or manage risk effectively. Combining COCH analysis with other technical tools and indicators can enhance trading decisions and improve overall strategy effectiveness.</p>
+                        
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

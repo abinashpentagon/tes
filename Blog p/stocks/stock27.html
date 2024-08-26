@@ -1,0 +1,261 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc" id="#option-buying"><a href="#option-buying">Option Buying</a></li>
+            <li class="list-item-toc" id="#option-selling"><a href="#option-selling">Option Selling</a></li>
+            <li class="list-item-toc" id="#benefits-risks-option-trading"><a href="#benefits-risks-option-trading">Benefits and Risks of Option Buying and Selling</a></li>
+                                    
+          </ul>
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Option Trading</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+            <section id="introduction-option-trading">
+                <h5>Introduction: Option Trading Overview</h5>
+                <p>Option trading involves the buying and selling of options, which are financial derivatives based on the value of underlying assets like stocks, indices, commodities, or currencies. Options offer the right, but not the obligation, to buy or sell the underlying asset at a specified price within a certain time frame. Traders can either buy or sell options, and each approach has its own risks and rewards.</p>
+            </section>
+            
+            <section id="option-buying">
+                <h5>Option Buying</h5>
+                <p>When you buy an option, you pay a premium to acquire the right to buy or sell the underlying asset at a predetermined price (strike price) within a specific period. There are two main types of options you can buy: call options and put options.</p>
+                
+                <section id="call-option-buying">
+                    <h6>Call Option Buying</h6>
+                    <p>Gives you the right to buy the underlying asset at the strike price. You profit if the asset's price rises above the strike price plus the premium you paid.</p>
+                </section>
+                
+                <section id="put-option-buying">
+                    <h6>Put Option Buying</h6>
+                    <p>Gives you the right to sell the underlying asset at the strike price. You profit if the asset's price falls below the strike price minus the premium you paid.</p>
+                </section>
+            </section>
+            
+            <section id="option-selling">
+                <h5>Option Selling</h5>
+                <p>When you sell an option, you receive a premium for taking on the obligation to buy or sell the underlying asset if the option buyer decides to exercise their right. This can involve significant risk since you may have to buy or sell the asset at an unfavorable price.</p>
+                
+                <section id="call-option-selling">
+                    <h6>Call Option Selling (Writing)</h6>
+                    <p>Obligates you to sell the underlying asset at the strike price if the buyer exercises the option. You profit from the premium received, provided the asset's price does not rise above the strike price.</p>
+                </section>
+                
+                <section id="put-option-selling">
+                    <h6>Put Option Selling (Writing)</h6>
+                    <p>Obligates you to buy the underlying asset at the strike price if the buyer exercises the option. You profit from the premium received, provided the asset's price does not fall below the strike price.</p>
+                </section>
+            </section>
+            
+            <section id="benefits-risks-option-trading">
+                <h5>Benefits and Risks of Option Buying and Selling</h5>
+                
+                <section id="benefits-option-buying">
+                    <h6>Benefits of Option Buying</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li><b>Limited Risk:</b> The maximum loss is limited to the premium paid.</li>
+                        <li><b>Unlimited Profit Potential:</b> Especially for call options if the asset's price rises significantly.</li>
+                    </ul>
+                </section>
+                
+                <section id="risks-option-buying">
+                    <h6>Risks of Option Buying</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li><b>Premium Loss:</b> The entire premium can be lost if the market doesn't move as expected.</li>
+                        <li><b>Time Decay:</b> The value of options decreases as the expiration date approaches.</li>
+                    </ul>
+                </section>
+                
+                <section id="benefits-option-selling">
+                    <h6>Benefits of Option Selling</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li><b>Premium Income:</b> Immediate income from the premium received.</li>
+                        <li><b>Profit from Stability:</b> Profitable if the asset's price remains stable.</li>
+                    </ul>
+                </section>
+                
+                <section id="risks-option-selling">
+                    <h6>Risks of Option Selling</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li><b>Unlimited Risk:</b> Potential for unlimited losses, especially for call options if the asset's price rises significantly.</li>
+                        <li><b>Obligation to Buy/Sell:</b> Must fulfill the contract terms if the option is exercised.</li>
+                    </ul>
+                </section>
+            </section>
+            
+            <section id="conclusion-option-trading">
+                <h5>Conclusion</h5>
+                <p>Option trading offers flexibility for different market scenarios, whether through buying or selling options. Buying options allows you to speculate on price movements with limited risk, while selling options can generate income but comes with higher risk. Understanding these concepts and their implications is crucial for making informed trading decisions.</p>
+            </section>
+
+
+
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

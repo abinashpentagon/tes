@@ -1,0 +1,222 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#key-feat"><a href="#key-feat">Key Features of the Primary Market</a></li>
+            <li class="list-item-toc" id="#process"><a href="#process">Process of Issuing Securities in the Primary Market</a></li>
+            
+
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Types of Market</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+                <h5>Markets include Primary Market, Secondary Market, Pre Market, Post Market</h5>
+                <br>
+                <h5>Primary Market</h5><p> Primary market is where new securities are issued directly by companies.<br><br>The primary market refers to the marketplace where new securities are created and sold to investors for the first time. Companies, governments, or public sector institutions raise capital by issuing new shares or debt instruments, such as bonds. This process is also known as an Initial Public Offering (IPO) when it involves equity shares.</p>
+
+                <section id="key-feat">
+                <h6>Key Features of the Primary Market</h6>
+                <ol style="list-style-type:disc;margin-left: 20px;">
+                        <li><p><b>Issuance of New Securities:</b> The primary market is where new stocks or bonds are issued directly by the company or institution to investors. This is the first time these securities are available for purchase.</p></li>
+                        <li><p><b>Capital Raising:</b> The main purpose of the primary market is to raise capital for businesses to expand operations, finance new projects, or pay off debt.</p></li>
+                        <li><p><b>Direct Purchase:</b> Investors purchase the new securities directly from the issuer, typically through underwriting by investment banks or financial institutions.</p></li>
+                        <li><p><b>IPO (Initial Public Offering):</b> An IPO is the process by which a private company offers its shares to the public for the first time. This is a significant event for the company, as it transitions from being privately held to publicly traded.</p></li>
+                        <li><p><b>FPO (Follow-on Public Offering):</b> Companies that are already publicly traded can issue additional shares to raise more capital through a Follow-on Public Offering (FPO).</p></li>  
+                            <li><p><b>Rights Issue:</b> Existing shareholders are given the right to purchase additional shares at a discounted price before the company offers them to the public.</p></li>
+                            <li><p><b>Private Placement:</b> Securities are sold directly to a small group of institutional or sophisticated investors rather than the general public.</p></li>
+                           </ol>
+                
+                
+                   </section>
+
+            <section id="process">
+              <h5>Process of Issuing Securities in the Primary Market</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Preparation and Approval:</b> The issuing company prepares a detailed prospectus outlining its financial health, business model, and reasons for raising capital. This prospectus must be approved by the Securities and Exchange Board of India (SEBI).</p></li>    
+                    	<li><p><b>Underwriting:</b> Investment banks or financial institutions underwrite the issue, meaning they agree to purchase any unsold shares, ensuring the company raises the intended capital.</p></li>
+                        <li><p><b>Pricing:</b> The price of the new securities is determined based on market conditions, investor demand, and the company's valuation.</p></li>
+                            <li><p><b>Marketing and Subscription:</b> The issue is marketed to potential investors, and subscriptions are collected. If demand is high, the issue may be oversubscribed, meaning more investors want to buy shares than are available.</p></li>
+                            <li><p><b>Allocation and Listing:</b> Once the subscription period ends, shares are allocated to investors, and the securities are listed on stock exchanges like the Bombay Stock Exchange (BSE) and National Stock Exchange (NSE) for trading in the secondary market.</p></li>
+                  </ol>
+
+            </section>
+
+           
+            <p>Overall, the primary market plays a vital role in the functioning and development of the financial system, supporting the needs of both issuers and investors.</p>
+              </li>
+            </ol>
+
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

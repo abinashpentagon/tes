@@ -1,0 +1,340 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#key-characteristics-slo"><a href="#key-characteristics-slo">Key Characteristics</a></li>
+            <li class="list-item-toc" id="#types-slo"><a href="#types-slo">Types of Stop Loss Orders</a></li>
+            <li class="list-item-toc" id="#advantages-slo"><a href="#advantages-slo">Advantages of Stop Loss Orders</a></li>
+            <li class="list-item-toc" id="#disadvantages-slo"><a href="#disadvantages-slo">Disadvantages of Stop Loss Orders</a></li>
+            <li class="list-item-toc" id="#example-slo"><a href="#example-slo">Example</a></li>
+            <li class="list-item-toc" id="#when-slo"><a href="#when-slo">When to use a Stop Loss Order</a></li>
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Types of Orders</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+            
+            
+            <h5>Stop Loss Order</h5>
+<p>A stop loss order is a type of order used by traders and investors to limit potential losses on a position in a financial instrument. The order is designed to automatically sell (or buy, in the case of a short position) an asset when its price reaches a predefined level, thus preventing further losses beyond that point.</p>
+
+<section id="key-characteristics-slo">
+    <h5>Key Characteristics</h5>
+    <ul style="list-style-type:disc; margin-left: 20px;">
+        <li>
+            <h6>Trigger Price</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>A stop loss order is activated when the asset's price reaches the specified stop price. Once triggered, the stop loss order becomes a market order (or limit order, depending on the type) and is executed at the best available price.</p></li>
+            </ul>
+        </li>
+        <li>
+            <h6>Automatic Execution</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>The order is executed automatically when the stop price is reached, eliminating the need for manual intervention to exit the position.</p></li>
+            </ul>
+        </li>
+        <li>
+            <h6>Risk Management Tool</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>Helps in managing risk by setting a predefined exit point to protect against significant losses.</p></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="types-slo">
+    <h5>Types of Stop Loss Orders</h5>
+    <ul style="list-style-type:disc; margin-left: 20px;">
+        <li>
+            <h6>Standard Stop Loss Order</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p><b>Definition:</b> This is the most common type of stop loss order. It becomes a market order once the stop price is reached, and the asset is sold at the best available price.</p></li>
+                <li><p><b>Example:</b> If you hold shares of Tata Motors at ₹500 and set a stop loss at ₹480, the order will trigger a sale if the price falls to ₹480 or below.</p></li>
+            </ul>
+        </li>
+        <li>
+            <h6>Stop Limit Order</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p><b>Definition:</b> This type of stop loss order combines a stop loss with a limit order. Once the stop price is reached, the order becomes a limit order and will be executed at the specified limit price or better.</p></li>
+                <li><p><b>Example:</b> If you own shares of HDFC Bank at ₹1,600 and set a stop loss with a limit price of ₹1,550, the order will trigger a limit order to sell at ₹1,550 or better if the stop price of ₹1,550 is reached.</p></li>
+            </ul>
+        </li>
+        <li>
+            <h6>Trailing Stop Loss Order</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p><b>Definition:</b> A trailing stop loss order adjusts the stop price as the market price moves in your favor. It locks in profits by setting the stop price at a percentage or fixed amount below the market price, which adjusts upward if the price increases.</p></li>
+                <li><p><b>Example:</b> If you set a trailing stop loss of ₹50 below the market price for shares of Infosys, and the price rises to ₹1,200, the stop price will adjust to ₹1,150. If the price then falls to ₹1,150, the order will trigger a sale.</p></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="advantages-slo">
+    <h5>Advantages of Stop Loss Orders</h5>
+    <ul style="list-style-type:disc; margin-left: 20px;">
+        <li>
+            <h6>Automated Risk Management</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>Automatically exits a position when the stop price is reached, reducing the need for constant monitoring.</p></li>
+            </ul>
+        </li>
+        <li>
+            <h6>Loss Limitation</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>Helps in limiting potential losses by setting a predefined exit point, protecting your investment from significant declines.</p></li>
+            </ul>
+        </li>
+        <li>
+            <h6>Emotional Control</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>Reduces emotional decision-making by implementing a systematic approach to exiting positions based on predetermined criteria.</p></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="disadvantages-slo">
+    <h5>Disadvantages of Stop Loss Orders</h5>
+    <ul style="list-style-type:disc; margin-left: 20px;">
+        <li>
+            <h6>Slippage</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>In volatile markets, the execution price may be worse than the stop price due to slippage, which can result in larger losses than anticipated.</p></li>
+            </ul>
+        </li>
+        <li>
+            <h6>Order Execution Uncertainty</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>For standard stop loss orders, there is no guarantee that the order will be executed at the exact stop price. The execution price will be the best available price at the time the order is triggered.</p></li>
+            </ul>
+        </li>
+        <li>
+            <h6>Potential for Stop Hunting</h6>
+            <ul style="list-style-type:circle; margin-left: 20px;">
+                <li><p>Market makers or traders might drive prices to trigger stop loss orders before reversing the trend, which can lead to unnecessary losses.</p></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="example-slo">
+    <h5>Example in the Indian Market</h5>
+    <h6>Scenario</h6>
+    <p>Suppose you own shares of Infosys, currently trading at ₹1,200 per share. You place a stop loss order at ₹1,150 to protect against a decline.</p>
+    <h6>Execution</h6>
+    <ul style="list-style-type:disc; margin-left: 20px;">
+      <li><p>If Infosys' price falls to ₹1,150 or below, the stop loss order is triggered and becomes a market order to sell the shares at the best available price.</p></li>
+        <li><p>For a stop limit order, if the price hits ₹1,150, the stop loss becomes a limit order to sell at ₹1,150 or better. If the price falls below ₹1,150 too quickly, the limit order may not be executed.</p></li></ul>
+        <h6>Comparison</h6>
+            <ul style="list-style-type:disc; margin-left: 20px;">
+                <li><p><b>Market Order:</b> Guarantees immediate execution at the current market price but does not allow for specific trigger conditions.</p></li>
+                <li><p><b>Limit Order:</b> Executes at a specified price but does not remain active indefinitely and may expire if not filled within a specified period.</p></li>
+                <li><p><b>Stop Loss Order:</b> Allows you to set a trigger condition for execution and remains active until triggered, but there is no guarantee of the exact execution price.</p></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="when-slo">
+    <h5>When to Use a Stop Loss Order</h5>
+<ul style="list-style-type:disc; margin-left: 20px;">
+    <li>
+        <h6>To Protect Gains</h6>
+        <ul style="list-style-type:circle; margin-left: 20px;">
+            <li><p>Use stop loss orders to lock in profits by setting a stop price above your entry price once the asset moves favorably.</p></li>
+        </ul>
+    </li>
+    <li>
+        <h6>In Volatile Markets</h6>
+        <ul style="list-style-type:circle; margin-left: 20px;">
+            <li><p>Implement stop loss orders to manage risk in highly volatile markets where prices can fluctuate rapidly.</p></li>
+        </ul>
+    </li>
+    <li>
+        <h6>For Long-Term Positions</h6>
+        <ul style="list-style-type:circle; margin-left: 20px;">
+            <li><p>Protect long-term investments from significant declines by setting stop loss orders at levels that reflect your risk tolerance.</p></li>
+        </ul>
+    </li>
+</ul>
+</section>
+<h5>Conclusion</h5>
+<p>Stop-loss orders are a vital tool for managing trading risk and protecting investments. They automatically trigger a sale (or purchase, for short positions) when an asset's price reaches a specified level, ensuring that losses are capped and investments are safeguarded.</p>
+  
+            
+            
+
+              </li>
+            </ol>
+
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

@@ -1,0 +1,275 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#key-feat-Bees"><a href="#key-feat-Bees">Key Features of BEES</a></li>
+            <li class="list-item-toc" id="#types-Be"><a href="#types-Be">Types of BEES in India</a></li>
+            <li class="list-item-toc" id="#bene-Be"><a href="#bene-Be">Benefits of Investing in BEES</a></li>
+            <li class="list-item-toc" id="#risks-Be"><a href="#risks-Be">Risks of Investing in BEES</a></li>
+            <li class="list-item-toc" id="#invest-Be"><a href="#invest-Be">How to Invest in BEES in India</a></li>
+            <li class="list-item-toc" id="#ex-Be"><a href="#ex-Be">Example of BEES Investment</a></li>
+
+
+
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Investment Vehicles</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+                <h5>Bees (Benchmark Exchange Traded Schemes)</h5>
+                <br>
+                <p> BEES refers to Benchmark Exchange Traded Schemes (commonly called "BEES"). They are exchange-traded funds (ETFs) that track specific indices, providing investors with exposure to a broad market segment. BEES are listed on stock exchanges that aim to replicate the performance of a specific index.
+                     They are popular investment instruments for achieving diversified exposure to the stock market.</p>
+                <section id="key-feat-Bees">
+                <h5>Key Features of BEES</h5>
+                <ol style="list-style-type:disc;margin-left: 20px;">
+                    <li><p><b>Index Tracking:</b> BEES track the performance of well-known market indices like Nifty 50, Sensex, etc., by investing in the same securities that make up the index.</p></li>
+                    <li><p><b>Liquidity:</b> BEES are traded on stock exchanges like regular stocks, providing liquidity and ease of buying or selling throughout the trading day.</p></li>
+                    <li><p><b>Diversification:</b> By holding a portfolio of stocks that mirror the index, BEES offer diversified exposure to the market, reducing individual stock risk.</p></li>
+                    <li><p><b>Cost Efficiency:</b> Typically have lower expense ratios compared to actively managed funds due to their passive management strategy.</p></li>
+                             </ol>
+           
+                   </section>
+
+            <section id="types-Be">
+              <h5>Types of BEES in India</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    <li><p><b>Nifty BEES:</b> Tracks the Nifty 50 Index, providing exposure to the top 50 large-cap companies listed on the NSE.</p></li>
+                    <li><p><b>Sensex BEES:</b> Mirrors the performance of the BSE Sensex, which includes the top 30 large-cap companies listed on the BSE.</p></li>
+                    <li><p><b>Bank BEES:</b> Tracks the performance of the Nifty Bank Index, which focuses on the banking sector.</p></li>
+                    <li><p><b>Gold BEES:</b> Tracks the price of gold by investing in gold bullion, providing an alternative investment in precious metals.</p></li>
+                                                                                
+                  </ol>
+
+            </section>
+
+            <section id="bene-Be">
+                <h5>Benefits of Investing in BEES</h5>
+                  
+                    <ol style="list-style-type:disc;margin-left: 20px;">
+                        <li><p><b>Diversification:</b> Offers exposure to a broad range of stocks within the index, reducing individual stock risk.</p></li>
+                        <li><p><b>Liquidity:</b> Can be traded on stock exchanges like regular stocks, providing flexibility in buying or selling.</p></li>
+                        <li><p><b>Cost Efficiency:</b> Lower management fees compared to actively managed funds.</p></li>
+                        <li><p><b>Transparency:</b> Easy to track, as their performance mirrors the underlying index.</p></li>
+                </ol>
+  
+              </section>
+
+              <section id="risks-Be">
+                <h5>Risks of Investing in BEES</h5>
+                  
+                    <ol style="list-style-type:disc;margin-left: 20px;">
+                        <li><p><b>Market Risk:</b> The value of BEES can fluctuate with market conditions, potentially leading to losses.</p></li>
+                        <li><p><b>Tracking Error:</b> The performance may slightly deviate from the index due to management fees or other factors.</p></li>
+                        <li><p><b>Sector Concentration:</b> If the index is heavily weighted in certain sectors, BEES may be more volatile.</p></li>
+                        <li><p><b>Trading Costs:</b> Frequent trading may incur brokerage fees and taxes.</p></li>
+                                                                                                                        
+                </ol>
+  
+              </section>
+
+             
+              <section id="invest-Be">
+                <h5>How to Invest in BEES in India</h5>
+                  
+                    <ol style="list-style-type:disc;margin-left: 20px;">
+                        <li><p><b>Identify Investment Goals:</b> Determine your financial objectives and risk tolerance.</p></li>
+                        <li><p><b>Select BEES:</b> Choose an ETF that tracks an index aligned with your investment goals, such as Nifty BEES for broad market exposure.</p></li>
+                        <li><p><b>Research BEES:</b> Evaluate based on expense ratios, liquidity, and historical performance.</p></li>
+                        <li><P><b>Open an Account:</b> Invest through a brokerage account that allows trading in ETFs.</P></li>
+                        <li><p><b>Invest:</b> Purchase units of the BEES through the stock exchange using your trading account.</p></li>
+                        <li><p><b>Monitor Your Investment:</b> Regularly review the performance and ensure it aligns with your investment strategy.</p></li>
+                                                                                
+                    </ol>
+  
+              </section>
+
+              <section id="ex-Be">
+                <h5>Example of BEES Investment</h5>
+            <p>An investor seeking diversified exposure to the Indian stock market might invest in Nifty BEES. This ETF provides returns that closely mirror the performance
+                 of the Nifty 50 Index, offering a broad representation of the top 50 large-cap companies in India.</p>
+         </ol>
+  
+              </section>
+
+
+              <h5>Conclusion</h5>
+              <p>BEES are effective investment tools for gaining exposure to specific indices with benefits like diversification, liquidity, and cost efficiency. While they provide broad market exposure, investors should be mindful of market risks and tracking errors. 
+                Careful selection and monitoring are key to leveraging BEES effectively in your investment strategy.</p>
+
+              </li>
+            </ol>
+
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

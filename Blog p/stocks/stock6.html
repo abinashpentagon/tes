@@ -1,0 +1,240 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#key-feat-second"><a href="#key-feat-second">Key Features of the Secondary Market</a></li>
+            <li class="list-item-toc" id="#process-second"><a href="#process-second">Process of Trading in the Secondary Market</a></li>
+            <li class="list-item-toc" id="#imp-second"><a href="#imp-second">Importance of the Secondary Market</a></li>
+
+
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Types of Market</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+                <h5>Markets include Primary Market, Secondary Market, Pre Market, Post Market</h5>
+                <br>
+                <h5>Secondary Market</h5><p> A secondary market is where existing securities are traded among investors.<br><br>The secondary market refers to the marketplace where existing securities such as stocks, bonds, and other financial instruments are traded among investors after they have been issued in the primary market. In the secondary market, investors buy and sell securities without the involvement of the issuing companies.</p>
+
+                <section id="key-feat-second">
+                <h5>Key Features of the Secondary Market</h5>
+                <ol style="list-style-type:disc;margin-left: 20px;">
+                        <li><p><b>Trading of Existing Securities:</b> The secondary market is where securities that were initially sold in the primary market are bought and sold among investors.</p></li>
+                        <li><p><b>Liquidity:</b> It provides liquidity to investors by allowing them to buy and sell securities easily. This is crucial for the functioning of the capital markets as it ensures that investors can convert their securities into cash when needed.</p></li>
+                        <li><p><b>Price Discovery:</b> The prices of securities in the secondary market are determined by supply and demand dynamics. This process of price discovery helps in reflecting the true value of the securities based on market conditions and investor sentiment.</p></li>
+                        <li><p><b>Regulated Environment:</b> The secondary market is regulated by securities regulatory authorities such as the Securities and Exchange Board of India (SEBI) to ensure fair trading practices, transparency, and investor protection.</p></li>  
+                            <li><p><b>Types of Markets:</b></p></li>
+                            <ol style="list-style-type: circle;margin-left: 20px;">
+                            <li><p><b>Stock Exchanges:</b> Organized and regulated marketplaces where securities are bought and sold. Examples include the Bombay Stock Exchange (BSE) and the National Stock Exchange (NSE).</p></li>
+                            <li><p><b>Over-the-Counter (OTC) Market:</b> A decentralized market where securities not listed on formal exchanges are traded directly between parties, often through a dealer network.</p></li>
+                            </ol>
+
+                           </ol>
+                
+                
+                   </section>
+
+            <section id="process-second">
+              <h5>Process of Trading in the Secondary Market</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Opening a Trading Account:</b> Investors must open a trading account with a brokerage firm to start trading in the secondary market.</p></li>    
+                    	<li><p><b>Placing Orders:</b> Investors place buy or sell orders through their brokers, specifying the type and quantity of securities they wish to trade.</p></li>
+                        <li><p><b>Order Matching:</b> The stock exchange's trading system matches buy and sell orders based on price and time priority. Once matched, a trade is executed.</p></li>
+                            <li><p><b>Settlement:</b> The process of transferring the ownership of securities from the seller to the buyer and the corresponding cash from the buyer to the seller. In India, the settlement cycle is T+1, meaning the trade is settled one business day after the transaction.</p></li>
+                  </ol>
+
+            </section>
+
+            <section id="imp-second">
+                <h5>Importance of the Secondary Market</h5>
+                  
+                    <ol style="list-style-type:disc;margin-left: 20px;">
+                          <li><p><b>Provides Liquidity:</b> Investors can easily buy and sell securities, making the market more liquid and attractive.</p></li>    
+                          <li><p><b>Continuous Price Discovery:</b> The constant trading of securities helps in the continuous determination of market prices, reflecting the latest information and investor sentiment.</p></li>
+                          <li><p><b>Risk Management:</b> Investors can manage and diversify their portfolios by trading securities in the secondary market.</p></li>
+                              <li><p><b>Access to Investment Opportunities:</b> It offers a wide range of investment options for investors, allowing them to invest in various companies and sectors.</p></li>
+                              <li><p><b>Market Efficiency:</b> The secondary market contributes to market efficiency by enabling quick adjustments to new information and economic developments.</p></li>    
+                              <li><p><b>Economic Growth:</b> By facilitating the flow of capital, the secondary market supports economic growth and development.</p></li>    
+
+                            </ol>
+  
+              </section>
+
+           <h5>Conclusion</h5>
+            <p>Overall, the secondary market is a crucial component of the financial system, providing a platform for the trading of securities, ensuring liquidity, enabling price discovery, and supporting overall economic growth.</p>
+              </li>
+            </ol>
+
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

@@ -1,0 +1,324 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#support-and-resistance-definitions"><a href="#support-and-resistance-definitions">Support and Resistance: Definitions</a></li>
+            <li class="list-item-toc" id="#identifying-support-and-resistance"><a href="#identifying-support-and-resistance">Identifying Support and Resistance</a></li>
+            <li class="list-item-toc" id="#using-support-and-resistance-in-trading"><a href="#using-support-and-resistance-in-trading">Using Support and Resistance in Trading</a></li>
+            <li class="list-item-toc" id="#examples-of-support-and-resistance"><a href="#examples-of-support-and-resistance">Examples of Support and Resistance</a></li>
+            <li class="list-item-toc" id="#adjusting-support-and-resistance"><a href="#adjusting-support-and-resistance">Adjusting Support and Resistance</a></li>
+
+
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Technical Analysis</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+            <h5>Support and Resistance</h5>
+            <p>Support and resistance are fundamental concepts in technical analysis used to identify potential price levels where a market is likely to reverse or stall. Understanding these concepts helps traders make informed decisions about entry and exit points, as well as manage risk.</p>
+            
+            <section id="support-and-resistance-definitions">
+                <h5>Support and Resistance: Definitions</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>Support</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Definition:</b> Support is a price level where a downtrend is expected to pause due to a concentration of demand. At this level, buying pressure is strong enough to overcome selling pressure, preventing the price from falling further.</p></li>
+                            <li><p><b>Characteristics:</b></p>
+                            <ul style="list-style-type:circle; margin-left: 20px;">
+                                <li><p><b>Historical Significance:</b> Often formed at a level where the price has previously reversed or consolidated.</p></li>
+                                <li><p><b>Buying Zone:</b> Traders view support levels as potential buying opportunities.</p></li>
+                                <li><p><b>Dynamic Nature:</b> Support levels can change over time based on market conditions and price movements.</p></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Resistance</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Definition:</b> Resistance is a price level where an uptrend is expected to pause due to a concentration of selling. At this level, selling pressure outweighs buying pressure, preventing the price from rising further.</p></li>
+                            <li><p><b>Characteristics:</b></p>
+                            <ul style="list-style-type:circle; margin-left: 20px;">
+                                <li><p><b>Historical Significance:</b> Often formed at a level where the price has previously reversed or consolidated.</p></li>
+                                <li><p><b>Selling Zone:</b> Traders view resistance levels as potential selling opportunities.</p></li>
+                                <li><p><b>Dynamic Nature:</b> Resistance levels can change over time based on market conditions and price movements.</p></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="identifying-support-and-resistance">
+                <h5>Identifying Support and Resistance</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>Horizontal Levels</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Historical Highs and Lows:</b> Look for previous peaks (resistance) and troughs (support) on the chart.</p></li>
+                            <li><p><b>Consolidation Areas:</b> Areas where the price has consolidated or traded sideways are often key support and resistance levels.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Trendlines</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Uptrend Support:</b> Draw trendlines connecting higher lows to identify rising support levels.</p></li>
+                            <li><p><b>Downtrend Resistance:</b> Draw trendlines connecting lower highs to identify falling resistance levels.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Moving Averages</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Support and Resistance:</b> Moving averages can act as dynamic support and resistance levels. For example, the 50-day or 200-day moving average often serves as a significant level.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Chart Patterns</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Head and Shoulders:</b> The neckline of a head and shoulders pattern can act as support or resistance.</p></li>
+                            <li><p><b>Double Tops and Bottoms:</b> The peak in a double top pattern can act as resistance, while the trough in a double bottom pattern can act as support.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="using-support-and-resistance-in-trading">
+                <h5>Using Support and Resistance in Trading</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>Entry and Exit Points</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Buying at Support:</b> Consider buying near support levels when there is evidence of a potential reversal or bounce.</p></li>
+                            <li><p><b>Selling at Resistance:</b> Consider selling near resistance levels when there is evidence of a potential reversal or stall.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Breakouts</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Breakout Above Resistance:</b> When the price breaks above a resistance level, it may signal a continuation of the uptrend. Traders might consider buying.</p></li>
+                            <li><p><b>Breakout Below Support:</b> When the price breaks below a support level, it may signal a continuation of the downtrend. Traders might consider selling.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Stop-Loss and Take-Profit</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Stop-Loss:</b> Place stop-loss orders just below support levels for long trades, or just above resistance levels for short trades, to manage risk.</p></li>
+                            <li><p><b>Take-Profit:</b> Set take-profit levels near the next significant support or resistance levels.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="examples-of-support-and-resistance">
+                <h5>Examples of Support and Resistance</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>Support Example</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Scenario:</b> A stock has repeatedly bounced off a price level of ₹100, where buying interest appears strong. This level becomes a key support level.</p></li>
+                            <li><p><b>Trading Action:</b> Traders might look to buy near ₹100 with a stop-loss slightly below this level, anticipating that the price will bounce back up.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Resistance Example</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Scenario:</b> A stock has struggled to break above ₹150, where selling pressure appears strong. This level becomes a key resistance level.</p></li>
+                            <li><p><b>Trading Action:</b> Traders might consider selling or taking profits near ₹150, with a stop-loss set just above this level, anticipating that the price may reverse.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="adjusting-support-and-resistance">
+                <h5>Adjusting Support and Resistance</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>Changing Levels</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Support and Resistance Levels:</b> Support and resistance levels can evolve as new highs or lows are established. Continuously adjust these levels based on current price action.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Market Conditions</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Volatility:</b> In volatile markets, support and resistance levels might become less reliable. Use additional indicators and analysis methods to confirm signals.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <h5>Conclusion</h5>
+            <p>Support and resistance are critical concepts in technical analysis that help traders identify potential reversal points, entry and exit opportunities, and manage risk. By analyzing historical price levels, trendlines, moving averages, and chart patterns, traders can make informed decisions and develop effective trading strategies. Combining support and resistance analysis with other technical tools can enhance
+             
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

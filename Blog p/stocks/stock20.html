@@ -1,0 +1,271 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#key-aspects-fvg"><a href="#key-aspects-fvg">Key Aspects of Fair Value Gap</a></li>
+            <li class="list-item-toc" id="#practical-application"><a href="#practical-application">Practical Application</a></li>
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Technical Analysis</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+                <h5>Fair Value Gap</h5>
+                <p>A Fair Value Gap (FVG) refers to a price level or area on a chart where a significant discrepancy exists between the current market price and the perceived fair value. This gap is often influenced by the actions of smart money and can represent areas where institutional traders have moved the market away from its intrinsic value, creating potential opportunities for retail traders to identify reversals or continuations.</p>
+                <p>Image:</p>
+            
+            <section id="key-aspects-fvg">
+                <h5>Key Aspects of Fair Value Gap</h5>
+                
+                <section id="identification-fvg">
+                    <h6>Identification of FVG</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Market Moves:</b> Look for large, abrupt price movements or gaps on the chart. These are often driven by significant trades from institutional investors or smart money.</p>
+                        </li>
+                        <li>
+                            <p><b>Volume Analysis:</b> High trading volume accompanying these price moves can signal that the fair value gap is related to smart money actions.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="types-fvg">
+                    <h6>Types of Fair Value Gaps</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Price Gaps:</b> Areas where the price has jumped significantly from one level to another without trading in between, often due to major news or events.</p>
+                        </li>
+                        <li>
+                            <p><b>Volume Gaps:</b> Zones where there is a noticeable drop in trading volume, indicating a potential imbalance between supply and demand.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="role-fvg">
+                    <h6>Role of FVG in Market Dynamics</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Supply and Demand Imbalances:</b> Smart money often creates gaps when they move large positions in or out of the market, leading to temporary imbalances between supply and demand.</p>
+                        </li>
+                        <li>
+                            <p><b>Market Correction:</b> The market may return to these fair value gaps as it seeks to correct and realign the price with the intrinsic value. This can present opportunities for traders to enter or exit positions.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="trading-strategies-fvg">
+                    <h6>Trading Strategies Involving FVG</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Gap Fill Strategy:</b> Traders may anticipate that the market will return to fill the gap created by smart money moves. This involves buying when prices are below fair value or selling when prices are above fair value.</p>
+                        </li>
+                        <li>
+                            <p><b>Confirmation with Other Indicators:</b> Combine the fair value gap analysis with other indicators (e.g., moving averages, RSI) to confirm potential trading signals and avoid false signals.</p>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="examples-fvg">
+                    <h6>Examples of Fair Value Gap in Smart Money Concept</h6>
+                    <ul style="list-style-type:disc; margin-left: 20px;">
+                        <li>
+                            <p><b>Institutional Buying:</b> If a large institutional buyer enters a market, it might drive the price up rapidly, creating a gap between the current price and the fair value. Retail traders might look for opportunities to buy near the gap, expecting the price to eventually return to this level.</p>
+                        </li>
+                        <li>
+                            <p><b>Smart Money Reversal:</b> If smart money exits a position, it might cause a sharp decline in price, creating a gap. Traders might look for signs of reversal or stability near the gap to take advantage of the market correction.</p>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            
+            <section id="practical-application">
+                <h5>Practical Application</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <p><b>Chart Analysis:</b> Use technical analysis tools to identify fair value gaps. Look for areas where the price has moved rapidly and compare these levels with historical price patterns and trading volume.</p>
+                    </li>
+                    <li>
+                        <p><b>Volume and Price Action:</b> Analyze how volume changes around the fair value gap. High volume during price movements can indicate smart money involvement.</p>
+                    </li>
+                    <li>
+                        <p><b>Monitor News and Events:</b> Keep an eye on market news and events that might influence large trades and create fair value gaps. Institutional activity often follows significant news or economic events.</p>
+                    </li>
+                    <li>
+                        <p><b>Risk Management:</b> Incorporate proper risk management strategies when trading based on fair value gaps. Ensure that you use stop-loss orders and other techniques to manage potential risks associated with market volatility.</p>
+                    </li>
+                </ul>
+            </section>
+            
+                <h5>Conclusion</h5>
+                <p>In the Smart Money Concept, the Fair Value Gap provides insights into market inefficiencies created by large, informed trades. By understanding and identifying these gaps, traders can align their strategies with the actions of smart money, potentially improving their trading decisions and outcomes. However, it’s essential to combine fair value gap analysis with other technical and fundamental tools to create a comprehensive trading strategy.</p>
+                      
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

@@ -1,0 +1,289 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#trend-indicators"><a href="#trend-indicators">Trend Indicators</a></li>
+            <li class="list-item-toc" id="#momentum-indicators"><a href="#momentum-indicators">Momentum Indicators</a></li>
+            <li class="list-item-toc" id="#volatility-indicators"><a href="#volatility-indicators">Volatility Indicators</a></li>
+            <li class="list-item-toc" id="#volume-indicators"><a href="#volume-indicators">Volume Indicators</a></li>
+            <li class="list-item-toc" id="#trend-strength-indicators"><a href="#trend-strength-indicators">Trend Strength Indicators</a></li>
+            <li class="list-item-toc" id="#how-to-use-indicators"><a href="#how-to-use-indicators">How to Use Indicators</a></li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Technical Analysis</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+                <h5>Indicators</h5>
+                <p>Indicators are statistical tools used to analyze price data and forecast market trends. They help traders and investors make informed decisions by analyzing past price movements, volume, and other market data. Indicators can be classified into various types based on their function and the type of information they provide. Here’s a guide to some common types of indicators and their uses:</p>
+            
+            <section id="trend-indicators">
+                <h5>Trend Indicators</h5>
+                <p><b>Purpose:</b> To identify the direction and strength of a trend.</p>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <p><b>Moving Averages (MA):</b></p>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li>
+                                <p><b>Simple Moving Average (SMA):</b> Calculates the average price over a specific number of periods. It's used to smooth out price data and identify the direction of the trend.</p>
+                            </li>
+                            <li>
+                                <p><b>Exponential Moving Average (EMA):</b> Gives more weight to recent prices, making it more responsive to recent price changes. Commonly used in trading strategies for shorter-term trends.</p>
+                            </li>
+                        </ul>
+                        <p>Example: 50-day SMA, 200-day EMA.</p>
+                        <p>Image:</p>
+                    </li>
+                    <li>
+                        <p><b>Average True Range (ATR):</b> Measures market volatility by calculating the average range of price movements over a specified period.</p>
+                        <p>Example: Used to set stop-loss orders and determine market volatility.</p>
+                        <p>Image:</p>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="momentum-indicators">
+                <h5>Momentum Indicators</h5>
+                <p><b>Purpose:</b> To measure the speed and strength of price movements.</p>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <p><b>Relative Strength Index (RSI):</b> Measures the speed and change of price movements on a scale of 0 to 100. It identifies overbought or oversold conditions.</p>
+                        <p>Example: RSI above 70 may indicate overbought conditions, while below 30 may indicate oversold conditions.</p>
+                        <p>Image:</p>
+                    </li>
+                    <li>
+                        <p><b>Moving Average Convergence Divergence (MACD):</b> Shows the relationship between two moving averages of a security’s price. It consists of the MACD line, signal line, and histogram.</p>
+                        <p>Example: MACD line crossing above the signal line may indicate a bullish trend, while crossing below may indicate a bearish trend.</p>
+                        <p>Image:</p>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="volatility-indicators">
+                <h5>Volatility Indicators</h5>
+                <p><b>Purpose:</b> To measure the volatility of a security’s price.</p>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <p><b>Bollinger Bands:</b> Consists of a middle band (SMA) and two outer bands (standard deviations away from the SMA). It helps identify periods of high or low volatility.</p>
+                        <p>Example: Prices touching the upper band may indicate overbought conditions, while touching the lower band may indicate oversold conditions.</p>
+                        <p>Image:</p>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="volume-indicators">
+                <h5>Volume Indicators</h5>
+                <p><b>Purpose:</b> To analyze trading volume and its impact on price movements.</p>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <p><b>On-Balance Volume (OBV):</b> Uses volume flow to predict changes in stock price. It adds volume on up days and subtracts volume on down days.</p>
+                        <p>Example: Rising OBV indicates accumulation, while falling OBV indicates distribution.</p>
+                        <p>Image:</p>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="trend-strength-indicators">
+                <h5>Trend Strength Indicators</h5>
+                <p><b>Purpose:</b> To measure the strength of a trend.</p>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <p><b>Average Directional Index (ADX):</b> Measures the strength of a trend. It includes the ADX line, the Plus Directional Indicator (+DI), and the Minus Directional Indicator (-DI).</p>
+                        <p>Example: ADX above 20 indicates a strong trend, while below 20 indicates a weak trend.</p>
+                        <p>Image:</p>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="how-to-use-indicators">
+                <h5>How to Use Indicators</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <p><b>Combine Indicators:</b> Use multiple indicators together to confirm signals and enhance accuracy. For example, combine trend indicators with momentum indicators to validate trends.</p>
+                    </li>
+                    <li>
+                        <p><b>Understand Limitations:</b> No indicator is foolproof. Indicators should be used in conjunction with other forms of analysis, such as fundamental analysis and market sentiment.</p>
+                    </li>
+                    <li>
+                        <p><b>Customize Settings:</b> Many indicators have adjustable settings. Customize these settings based on the asset you are analyzing and the timeframe you are using.</p>
+                    </li>
+                    <li>
+                        <p><b>Backtest Strategies:</b> Test your trading strategies using historical data to evaluate how well your chosen indicators perform before applying them to live trading.</p>
+                    </li>
+                </ul>
+            </section>
+            
+                <h5>Conclusion</h5>
+                <p>Indicators are essential tools for traders to analyze market conditions and make informed decisions. Understanding and effectively using these indicators can improve trading strategies and help identify potential trading opportunities.</p>
+                     
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

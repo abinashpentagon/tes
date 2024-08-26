@@ -1,0 +1,284 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc" id="#contract-details"><a href="#contract-details">Contract Details</a></li>
+            <li class="list-item-toc" id="#expiry-date"><a href="#expiry-date">Expiry Date</a></li>
+            <li class="list-item-toc" id="#managing-contracts-expiry"><a href="#managing-contracts-expiry">Managing Contracts and Expiry</a></li>
+            <li class="list-item-toc" id="#practical-examples"><a href="#practical-examples">Practical Examples</a></li>
+                                                                    
+          </ul>
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Option Trading</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+            <section id="contract-expiry-overview">
+                <h5>Introduction: Contract and Expiry</h5>
+                <p>A contract refers to an agreement between two parties to buy or sell a financial instrument, such as an option or a futures contract, at a specified price on or before a certain date. The expiry date is the date by which the option or futures contract must be executed or settled, marking the end of the contract’s validity.</p>
+            </section>
+            
+            <section id="contract-details">
+                <h5>Contract Details</h5>
+                
+                <section id="options-contracts">
+                    <h6>Options Contracts</h6>
+                    <p>Options contracts give the holder the right, but not the obligation, to buy (call option) or sell (put option) a security at a predetermined price before the contract expires.</p>
+                </section>
+                
+                <section id="futures-contracts">
+                    <h6>Futures Contracts</h6>
+                    <p>Futures contracts are agreements to buy or sell an asset at a specified future date and price, obligating the buyer to purchase and the seller to deliver the asset unless the position is closed before expiry.</p>
+                </section>
+                
+                <section id="key-components">
+                    <h6>Key Components of a Contract</h6>
+                    <ul>
+                        <li><strong>Underlying Asset:</strong> The financial instrument or asset that the contract is based on, such as stocks, commodities, or indices.</li>
+                        <li><strong>Strike Price:</strong> For options contracts, this is the price at which the underlying asset can be bought or sold. For futures, it’s the price agreed upon for the transaction.</li>
+                        <li><strong>Contract Size:</strong> This defines the quantity of the underlying asset covered by one contract. For example, one futures contract might represent 100 barrels of oil.</li>
+                        <li><strong>Premium (for Options):</strong> The cost of purchasing an options contract, which is paid upfront.</li>
+                    </ul>
+                </section>
+            </section>
+            
+            <section id="expiry-date">
+                <h5>Expiry Date</h5>
+                
+                <section id="importance-of-expiry">
+                    <h6>Importance of Expiry Date</h6>
+                    <ul>
+                        <li><strong>For Options:</strong> The expiry date is crucial because it defines the last day the option can be exercised. After this date, the option becomes worthless if it is not exercised or sold. Options can be exercised, traded, or allowed to expire worthless up to this date.</li>
+                        <li><strong>For Futures:</strong> The expiry date is the date when the contract is settled. This could involve the physical delivery of the underlying asset or a cash settlement, depending on the contract terms.</li>
+                    </ul>
+                </section>
+                
+                <section id="types-of-expiry">
+                    <h6>Types of Expiry</h6>
+                    <ul>
+                        <li><strong>European Style:</strong> Options that can only be exercised on the expiry date.</li>
+                        <li><strong>American Style:</strong> Options that can be exercised at any time before or on the expiry date.</li>
+                        <li><strong>Weekly/Monthly Expiry:</strong> Some contracts have weekly or monthly expiry dates, providing more flexibility and trading opportunities.</li>
+                    </ul>
+                </section>
+                
+                <section id="impact-on-strategies">
+                    <h6>Impact of Expiry on Trading Strategies</h6>
+                    <ul>
+                        <li><strong>Option Strategies:</strong> Traders often use expiry dates to implement strategies like spreads, straddles, and strangles, which involve multiple options contracts with different expiry dates or strike prices.</li>
+                        <li><strong>Futures Trading:</strong> Traders may roll over their futures positions before expiry to avoid physical delivery or to maintain their exposure to the underlying asset.</li>
+                    </ul>
+                </section>
+            </section>
+            
+            <section id="managing-contracts-expiry">
+                <h5>Managing Contracts and Expiry</h5>
+                
+                <section id="tracking-managing-expiry">
+                    <h6>Tracking and Managing Expiry Dates</h6>
+                    <ul>
+                        <li><strong>Calendar Awareness:</strong> Traders must keep track of expiry dates to manage their positions effectively and avoid unwanted exercise or delivery.</li>
+                        <li><strong>Adjusting Positions:</strong> Before expiry, traders may choose to close, roll over, or exercise their contracts based on their market outlook and strategy.</li>
+                    </ul>
+                </section>
+                
+                <section id="strategies-expiry">
+                    <h6>Strategies for Expiry</h6>
+                    <ul>
+                        <li><strong>Rolling Over:</strong> Extending the position by closing the current contract and opening a new one with a later expiry date.</li>
+                        <li><strong>Closing Out:</strong> Selling or buying back the contract before expiry to realize profits or limit losses.</li>
+                        <li><strong>Exercising Options:</strong> For options holders, deciding whether to exercise the option, sell it, or let it expire worthless based on its value.</li>
+                    </ul>
+                </section>
+                
+                <section id="expiry-day-considerations">
+                    <h6>Expiry Day Considerations</h6>
+                    <ul>
+                        <li><strong>Increased Volatility:</strong> Expiry dates can lead to increased volatility as traders adjust their positions.</li>
+                        <li><strong>Settlement Risk:</strong> On expiry day, ensuring proper management to avoid unwanted settlement or delivery of the underlying asset.</li>
+                    </ul>
+                </section>
+            </section>
+            
+            <section id="practical-examples">
+                <h5>Practical Examples</h5>
+                
+                <section id="options-example">
+                    <h6>Options Example</h6>
+                    <p>A trader holds a call option with a strike price of $50 and an expiry date at the end of the month. As the expiry date approaches, the trader must decide whether to exercise the option if the underlying stock price is above $50, sell the option, or let it expire if it is out-of-the-money.</p>
+                </section>
+                
+                <section id="futures-example">
+                    <h6>Futures Example</h6>
+                    <p>A trader in crude oil futures has a contract expiring at the end of the month. If the trader does not wish to take physical delivery of the oil, they might roll over their position to a contract with a later expiry date or close their position before expiry.</p>
+                </section>
+            </section>
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

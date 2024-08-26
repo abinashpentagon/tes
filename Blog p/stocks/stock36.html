@@ -1,0 +1,311 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#key-characteristics-gtt"><a href="#key-characteristics-gtt">Key Characteristics</a></li>
+            <li class="list-item-toc" id="#types-gtt"><a href="#types-gtt">Types of GTT Orders</a></li>
+            <li class="list-item-toc" id="#advantages-gtt"><a href="#advantages-gtt">Advantages of GTT Orders</a></li>
+            <li class="list-item-toc" id="#disadvantages-gtt"><a href="#disadvantages-gtt">Disadvantages of GTT Orders</a></li>
+            <li class="list-item-toc" id="#example-gtt"><a href="#example-gtt">Example</a></li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Types of Orders</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+            
+            
+            <h5>GTT Order</h5>
+            <p>A GTT (Good Till Triggered) order is a type of order used in trading that allows investors to place a buy or sell order with a trigger condition. The order remains active until the specified trigger condition is met, after which it becomes a market order and is executed. This feature is particularly useful for automating trades based on specific price levels or conditions.</p>
+            
+            <section id="key-characteristics-gtt">
+                <h5>Key Characteristics</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>Trigger Condition</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>A GTT order is set with a trigger condition. This condition could be a specific price level at which the order will be activated.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Duration</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>The order remains active until the trigger condition is met or until it is manually canceled by the trader. Unlike standard limit or stop orders, which expire after a certain period, a GTT order does not expire until the trigger is activated.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Automated Execution</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>Once the trigger condition is met, the GTT order automatically becomes a market order (or limit order, depending on the type of GTT order placed) and is executed at the best available price.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="types-gtt">
+                <h5>Types of GTT Orders</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>GTT Buy Order</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Definition:</b> A GTT buy order is set to buy an asset only when its price reaches or falls below a specified trigger price.</p></li>
+                            <li><p><b>Example:</b> If you want to buy shares of Reliance Industries but only if the price drops to ₹2,400, you can set a GTT buy order with a trigger price of ₹2,400. The order will only be executed when the price reaches ₹2,400 or below.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>GTT Sell Order</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Definition:</b> A GTT sell order is set to sell an asset only when its price reaches or rises above a specified trigger price.</p></li>
+                            <li><p><b>Example:</b> If you hold shares of Infosys and want to sell them if the price rises to ₹1,300, you can set a GTT sell order with a trigger price of ₹1,300. The order will be executed when the price reaches ₹1,300 or above.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="advantages-gtt">
+                <h5>Advantages of GTT Orders</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>Automated Trading</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>GTT orders automate the trading process based on predefined conditions, reducing the need for constant monitoring of the markets.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Precision in Execution</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>Provides a precise mechanism for entering or exiting positions based on specific price levels or market conditions.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>No Expiry</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>Unlike regular orders that expire after a trading session or a specified period, GTT orders remain valid until triggered or manually canceled.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="disadvantages-gtt">
+                <h5>Disadvantages of GTT Orders</h5>
+                <ul style="list-style-type:disc; margin-left: 20px;">
+                    <li>
+                        <h6>No Immediate Execution</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>The order will not execute until the trigger condition is met, which means there is no guarantee of immediate execution even after the trigger is activated.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Potential for Missed Opportunities</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>If the price moves quickly and does not reach the trigger level, the order might never be executed, leading to missed trading opportunities.</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Manual Cancellation Required</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p>Traders must manually cancel GTT orders if they no longer wish to execute the trade, which requires active management of the order status.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="example-gtt">
+                <h5>Example</h5>
+                <h6>Scenario</h6>
+                    <p> You want to buy shares of HDFC Bank but only if the price drops to ₹1,500. You place a GTT buy order with a trigger price of ₹1,500.</p></li>
+                    <h6>Execution</h6> 
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+
+                        <li><p>If HDFC Bank’s price falls to ₹1,500 or below, the GTT order is triggered and becomes a market order to buy the shares at the best available price.</p></li>
+                    <li><p>If the price does not reach ₹1,500, the order remains inactive until the trigger condition is met or you manually cancel the order.</p></li></ul>
+                    <h6>Comparison</h6>
+                        <ul style="list-style-type:circle; margin-left: 20px;">
+                            <li><p><b>Market Order:</b> Executes immediately at the current market price but does not allow for specific trigger conditions.</p></li>
+                            <li><p><b>Limit Order:</b> Executes at a specified price but does not remain active indefinitely and may expire if not filled within a specified period.</p></li>
+                            <li><p><b>GTT Order:</b> Allows you to set a trigger condition for execution and remains active until the condition is met or manually cancelled.</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <h5>Conclusion</h5>
+            <p>A GTT (Good Till Triggered) order automates trade execution by remaining active until a specified trigger condition is met, offering precise control over entry and exit points. It provides a strategic advantage for automated trading but may miss opportunities if the trigger condition is never met or require manual cancellation.</p>
+              
+            
+            
+
+              </li>
+            </ol>
+
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

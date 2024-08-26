@@ -1,0 +1,433 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#stock-share"><a href="#stock-share">Stock/Share</a></li>
+            <li class="list-item-toc" id="#IPO"><a href="#IPO">Initial Public Offering (IPO)</a></li>
+            <li class="list-item-toc" id="#bull-market"><a href="#bull-market">Bull Market</a></li>
+            <li class="list-item-toc" id="#bear-market"><a href="#bear-market">Bear Market</a></li>
+            <li class="list-item-toc" id="#dividend"><a href="#dividend">Dividend</a></li>
+            <li class="list-item-toc" id="#broker"><a href="#broker"> Broker</a></li>
+            <li class="list-item-toc" id="#portfolio"><a href="#portfolio">Portfolio</a></li>
+            <li class="list-item-toc" id="#market-cap"><a href="#market-cap">Market Capitalization (Market Cap)</a></li>
+            <li class="list-item-toc" id="#liquidity"><a href="#liquidity">Liquidity</a></li>
+            <li class="list-item-toc" id="#volatility"><a href="#volatility">Volatility</a></li>
+            <li class="list-item-toc" id="#price-ratio"><a href="#price-ratio">Price to Earnings (P/E) Ratio</a></li>
+            <li class="list-item-toc" id="#bid-ask"><a href="#bid-ask">Bid-Ask Spread</a></li>
+            <li class="list-item-toc" id="#blue-chip"><a href="#blue-chip">Blue-Chip Stocks</a></li>
+            <li class="list-item-toc" id="#index"><a href="#index">Index</a></li>
+            <li class="list-item-toc" id="#capital-gains"><a href="#capital-gains">Capital Gains</a></li>
+            <li class="list-item-toc" id="#earnings-per-share"><a href="#earnings-per-share">Earnings Per Share (EPS)</a></li>
+            <li class="list-item-toc" id="#volume"><a href="#volume">Volume</a></li>
+            <li class="list-item-toc" id="#margin-trading"><a href="#margin-trading">Margin Trading</a></li>
+            <li class="list-item-toc" id="#short-selling"><a href="#short-selling">Short Selling</a></li>
+   
+
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Introduction to Stock Market</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+            <section id="stock-share">
+              <h5>Stock/Share</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> A stock (or share) represents a unit of ownership in a company. When you buy a stock, you become a shareholder and own a small part of that company.</p></li>
+                 
+                    	<li><p><b>Example:</b> If you buy 100 shares of Tata Motors, you own a portion of Tata Motors.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="IPO">
+              <h5>Initial Public Offering (IPO)</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> An IPO is the process through which a private company offers its shares to the public for the first time. It allows the company to raise capital from public Investors</p></li>                 
+                    	<li><p><b>Example:</b> When Zomato went public in 2021, it issued shares through an IPO.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="bull-market">
+              <h5>Bull Market</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> A bull market is a period during which stock prices are rising or are expected to rise. It is characterized by investor confidence and optimism.</p></li>
+                 
+                    	<li><p><b>Example:</b> The stock market experienced a bull run from 2016 to 2019, with major indices reaching record highs.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="bear-market">
+              <h5>Bear Market</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> A bear market is a period during which stock prices are falling or are expected to fall. It is characterized by investor pessimism and fear.</p></li>
+                 
+                    	<li><p><b>Example:</b> The global financial crisis of 2008 led to a prolonged bear market.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="dividend">
+              <h5>Dividend</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> A dividend is a portion of a company's earnings distributed to shareholders. Dividends can be issued in cash or additional shares.</p></li>
+                 
+                    	<li><p><b>Example:</b> Reliance Industries declared a dividend of ₹7 per share in a recent financial year.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="broker">
+              <h5>Broker</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> A broker is a person or firm that executes buy and sell orders on behalf of investors. Brokers charge a fee or commission for their services.</p></li>
+                 
+                    	<li><p><b>Example:</b> Zerodha and ICICI Direct are popular brokerage firms in India.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="portfolio">
+              <h5>Portfolio</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> A portfolio is a collection of investments owned by an individual or institution. It can include stocks, bonds, mutual funds, and other assets.</p></li>
+                 
+                    	<li><p><b>Example:</b> An investor’s portfolio might include shares of Infosys, bonds issued by the government, and units of a mutual fund.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="market-cap">
+              <h5>Market Capitalization (Market Cap)</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b>Market capitalization is the total market value of a company’s outstanding shares. It is calculated as the share price multiplied by the number of shares outstanding.</p></li>
+                 
+                    	<li><p><b>Example:</b> If TCS has 1 billion shares outstanding and the share price is ₹3,000, its market cap is ₹3 trillion.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="liquidity">
+              <h5>Liquidity</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> Liquidity refers to the ease with which an asset can be bought or sold in the market without affecting its price. Highly liquid assets can be quickly converted into cash.</p></li>
+                 
+                    	<li><p><b>Example:</b> Large-cap stocks like HDFC Bank are highly liquid because they are frequently traded.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="volatility">
+              <h5>Volatility</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> Volatility is a measure of the price fluctuations of a security or market index over a certain period. High volatility means prices can change dramatically in a short time.</p></li>
+                 
+                    	<li><p><b>Example:</b> The stock of a new technology startup might show high volatility due to speculative trading.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="price-ratio">
+              <h5>Price to Earnings (P/E) Ratio</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> The P/E ratio is a valuation metric that compares a company’s current share price to its per-share earnings. It helps investors determine if a stock is overvalued or undervalued.</p></li>
+                 
+                    	<li><p><b>Example:</b> If a company's share price is ₹100 and its earnings per share (EPS) is ₹10, the P/E ratio is 10.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="bid-ask">
+              <h5>Bid-Ask Spread</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> The bid-ask spread is the difference between the highest price a buyer is willing to pay for an asset (bid) and the lowest price a seller is willing to accept (ask).</p></li>
+                 
+                    	<li><p><b>Example:</b> If the bid price of a stock is ₹250 and the ask price is ₹255, the bid-ask spread is ₹5.</p></li>
+                    </ol>
+            </section>
+
+           
+            <section id="blue-chip">
+              <h5>Blue-Chip Stocks</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> Blue-chip stocks are shares of large, well-established, and financially sound companies with a history of reliable performance.</p></li>
+                 
+                    	<li><p><b>Example:</b> Infosys, TCS, and Reliance Industries are considered blue-chip stocks in India.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="index">
+              <h5>Index</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> An index is a statistical measure that represents the performance of a group of stocks. It serves as a benchmark to gauge market performance.</p></li>
+                 
+                    	<li><p><b>Example:</b> The Nifty 50 is an index representing the performance of the top 50 companies listed on the NSE.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="capital-gains">
+              <h5>Capital Gains</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> Capital gains are the profits earned from the sale of an asset, such as stocks, bonds, or real estate, at a price higher than the purchase price.</p></li>
+                 
+                    	<li><p><b>Example:</b> If you buy shares of Tata Motors at ₹200 and sell them at ₹250, the capital gain is ₹50 per share.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="earnings-per-share">
+              <h5>Earnings Per Share (EPS)</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> EPS is a company's net profit divided by the number of outstanding shares. It indicates how much money a company makes per share of its stock.</p></li>
+                 
+                    	<li><p><b>Example:</b> If a company's net profit is ₹1 crore and it has 10 lakh outstanding shares, its EPS is ₹10.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="volume">
+              <h5>Volume</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> Volume refers to the number of shares traded in a security or market over a specific period. It indicates the level of activity and liquidity.</p></li>
+                 
+                    	<li><p><b>Example:</b> High trading volume in Reliance Industries shares indicates strong investor interest.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="margin-trading">
+              <h5>Margin Trading</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> Margin trading involves borrowing money from a broker to purchase securities, allowing investors to buy more shares than they could with their available funds.</p></li>
+                 
+                    	<li><p><b>Example:</b> If you have ₹50,000 and your broker offers a 2:1 margin, you can buy ₹100,000 worth of stocks.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <section id="short-selling">
+              <h5>Short Selling</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    	<li><p><b>Definition:</b> Short selling is the practice of selling borrowed shares with the expectation that their price will decline, allowing the seller to buy them back at a lower price and profit from the difference.</p></li>
+                 
+                    	<li><p><b>Example:</b> If you short sell shares of Infosys at ₹1,500 and buy them back at ₹1,400, you make a profit of ₹100 per share.</p></li>
+                    </ol>
+                
+
+            </section>
+
+            <h5>Conclusion</h5>
+            <p>Understanding key stock market concepts is essential for both novice and experienced investors. Each term reflects a fundamental aspect of market operations and investment strategies</p>
+
+              </li>
+            </ol>
+
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')

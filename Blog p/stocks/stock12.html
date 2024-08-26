@@ -1,0 +1,275 @@
+@@include('header.htm')
+
+@@include('blocks/navigation.htm', {
+"active": "blog"
+})
+
+@@include('blocks/page-header.htm', {
+"page-name": "Blog Single"
+})
+
+<!-- blog details part start -->
+<section class="blog-details section">
+  <div class="container-fluid">
+
+
+    <div class="container-blog ">
+      <div class="frame-column1">
+        <!-- Table of Contents -->
+
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const tocLinks = document.querySelectorAll(".toc-wrapper a");
+            const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+
+            function updateActiveTocOnScroll() {
+              let index = sections.length;
+
+              while (--index && window.scrollY + 100 < sections[index].offsetTop) { } // Adjust offset if necessary
+
+              tocLinks.forEach((link, idx) => {
+                if (idx === index) {
+                  link.parentElement.classList.add("active-toc");
+                } else {
+                  link.parentElement.classList.remove("active-toc");
+                }
+              });
+            }
+
+            // function handleTocLinkClick(link) {
+            //   link.addEventListener("click", function (e) {
+            //     // e.preventDefault();  // Prevent default anchor link behavior
+
+            //     const targetId = this.getAttribute("href");
+            //     const targetSection = document.querySelector(targetId);
+            //     const headerOffset = 550; // Adjust this value based on your fixed header height
+            //     const elementPosition = targetSection.getBoundingClientRect().top;
+            //     const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+            //     window.scrollTo({
+            //       top: offsetPosition,
+            //       behavior: "smooth"
+            //     });
+
+            //     tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+            //     link.parentElement.classList.add("active-toc");
+            //   });
+            // }
+
+            updateActiveTocOnScroll(); // Initial call to set the active class based on the current scroll position
+
+            document.addEventListener("scroll", updateActiveTocOnScroll);
+
+            // tocLinks.forEach(handleTocLinkClick);
+            document.addEventListener("DOMContentLoaded", function () {
+              const tocLinks = document.querySelectorAll(".toc-wrapper a");
+              const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute("href")));
+              const headerHeight = document.querySelector('.navigation').offsetHeight; // Replace with your fixed header class
+
+
+              function handleTocLinkClick(link) {
+
+                link.addEventListener("click", function (e) {
+                  e.preventDefault(); // Prevent default anchor link behavior
+
+                  const targetId = this.getAttribute("href");
+                  const targetSection = document.querySelector(targetId);
+                  const elementPosition = targetSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.scrollY - 100;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+
+                  tocLinks.forEach(l => l.parentElement.classList.remove("active-toc"));
+                  link.parentElement.classList.add("active-toc");
+                });
+              }
+
+              // ... rest of your code ...
+            });
+
+          });
+
+        </script>
+
+        <div class="toc-wrapper">
+          <h4>Table of Contents</h4>
+          <ul>
+            <li class="list-item-toc active-toc" id="#key-feat-bonds"><a href="#key-feat-bonds">Key Features of Bonds</a></li>
+            <li class="list-item-toc" id="#types-bonds"><a href="#types-bonds">Types of Bonds in India</a></li>
+            <li class="list-item-toc" id="#bene-bonds"><a href="#bene-bonds">Benefits of Investing in Bonds</a></li>
+            <li class="list-item-toc" id="#risks-bonds"><a href="#risks-bonds">Risks of Investing in Bonds</a></li>
+            <li class="list-item-toc" id="#invest-bonds"><a href="#invest-bonds">How to Invest in Bonds in India</a></li>
+            <li class="list-item-toc" id="#ex-bonds"><a href="#ex-bonds">Example of Bond Investment in India</a></li>
+
+
+
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <div class="frame-column2">
+
+
+        <!-- Blog Content -->
+
+        <article class="post">
+          <h1 class="mt-0">Investment Vehicles</h1>
+          <p class="mb-5 mt-3 " style="font-size: .8rem;">By Admin | Posted on 27 JULY 2024 | 07 min read</p>
+          <div class="post-image mb-5 h-25">
+            <img loading="lazy" class="img-fluid w-75 rounded" src="images/blog/stockpic1.jpg" alt="post-image">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+           
+                <h5>Bonds</h5>
+                <br>
+                <p> Bonds are debt securities issued by entities such as the Indian government, state governments, and corporations to raise capital. Investors who purchase bonds are lending money to the issuer in exchange for periodic interest payments and the return of the bond's face value at maturity.</p>
+
+                <section id="key-feat-bonds">
+                <h5>Key Features of Bonds</h5>
+                <ol style="list-style-type:disc;margin-left: 20px;">
+                    <li><p><b>Interest Payments (Coupon Payments):</b> Bonds typically provide regular interest payments, known as coupons, which are paid semi-annually or annually.</p></li>
+                    <li><p><b>Face Value:</b> The amount the bond will be worth at maturity, and the amount the issuer agrees to repay to the bondholder.</p></li>
+                    <li><p><b>Maturity Date:</b> The date when the bond's principal amount is returned to the bondholder, and the bond matures.</p></li>
+                    <li><p><b>Yield:</b> The bond's annual return based on its current price and coupon payments, influenced by market conditions and interest rates.</p></li>
+                    <li><p><b>Credit Rating:</b> Bonds are rated based on the issuer's creditworthiness. Higher-rated bonds are considered safer, while lower-rated bonds carry higher risk.</p></li>
+                                    </ol>
+           
+                   </section>
+
+            <section id="types-bonds">
+              <h5>Types of Bonds in India</h5>
+                
+                  <ol style="list-style-type:disc;margin-left: 20px;">
+                    <li><p><b>Government Bonds:</b> Issued by the Indian government, including Treasury Bills (T-Bills) and Government of India Bonds. These are low-risk and offer fixed interest rates.</p></li>
+                    <li><p><b>State Government Bonds:</b> Issued by state governments to finance state-specific projects. These bonds may offer tax benefits and are generally lower-risk.</p></li>
+                    <li><p><b>Corporate Bonds:</b> Issued by Indian companies to raise funds for business expansion or other needs. These bonds can vary widely in terms of risk and return.</p></li>
+                    <li><p><b>Tax-Free Bonds:</b> Issued by government-backed entities such as NABARD, HUDCO, and IRFC. The interest earned is exempt from tax under Section 10(15) of the Income Tax Act.</p></li>
+                                        
+                  </ol>
+
+            </section>
+
+            <section id="bene-bonds">
+                <h5>Benefits of Investing in Bonds</h5>
+                  
+                    <ol style="list-style-type:disc;margin-left: 20px;">
+                        <li><p><b>Stable Income:</b> Provides regular interest payments, offering predictable income.</p></li>
+                        <li><p><b>Capital Preservation:</b> The principal amount is typically returned at maturity, assuming no default.</p></li>
+                        <li><p><b>Diversification:</b> Adds a different asset class to an investment portfolio, potentially reducing overall risk.</p></li>
+                        <li><p><b>Variety:</b> Offers options with different maturities, credit ratings, and interest rates tailored to Indian investors.</p></li>
+              </ol>
+  
+              </section>
+
+              <section id="risks-bonds">
+                <h5>Risks of Investing in  Bonds</h5>
+                  
+                    <ol style="list-style-type:disc;margin-left: 20px;">
+                        <li><p><b>Market Risk:</b> Bond prices can fluctuate with changes in interest rates and market conditions.</p></li>
+                        <li><p><b>Credit Risk:</b> The risk that the issuer may default on interest payments or principal repayment. Corporate bonds may carry higher credit risk.</p></li>
+                        <li><p><b>Interest Rate Risk:</b> Rising interest rates can decrease the market value of existing bonds.</p></li>
+                        <li><p><b>Inflation Risk:</b> Inflation can erode the purchasing power of the bond's interest payments and principal.</p></li>
+                        <li><p><b>Call Risk:</b> Callable bonds may be redeemed by the issuer before maturity, affecting returns.</p></li>
+                                                                        
+                </ol>
+  
+              </section>
+
+             
+              <section id="invest-bonds">
+                <h5>How to Invest in Bonds in India</h5>
+                  
+                    <ol style="list-style-type:disc;margin-left: 20px;">
+                        <li><p><b>Identify Investment Goals:</b> Define your financial objectives, risk tolerance, and investment horizon.</p></li>
+                        <li><p><b>Select Bond Types:</b> Choose from government, state, or corporate bonds based on your needs and risk appetite.</p></li>
+                        <li><p><b>Research Bonds:</b> Evaluate bonds based on credit ratings, yields, maturities, and issuer reputation.</p></li>
+                        <li><p><b>Purchase Bonds:</b> Buy bonds through banks, financial institutions, or online platforms like NSE or BSE Bond Market segments.</p></li>
+                        <li><p><b>Monitor Investments:</b> Regularly review bond performance and market conditions to ensure alignment with your financial goals.</p></li>
+                                
+                    </ol>
+  
+              </section>
+
+              <section id="ex-bonds">
+                <h5>Example of Bond Investment in India</h5>
+            <p>An investor looking for stable income with low risk might invest in Government of India Bonds. These bonds offer regular interest payments and return of principal at maturity with minimal credit risk.</p>
+            </ol>
+  
+              </section>
+
+
+              <h5>Conclusion</h5>
+              <p>Bonds in the Indian market offer a stable investment option with predictable income and capital preservation. They provide benefits such as diversification and safety but come with risks like interest rate fluctuations 
+                and credit risk. Careful selection and monitoring are essential for successful bond investing in India.</p>
+
+              </li>
+            </ol>
+
+            <ul class="post-content-share list-inline mb-5">
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-instagram">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-youtube">
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                    </path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://themefisher.com/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#808080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-mail">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="frame-column3">
+        <h2>ADS</h2>
+
+      </div>
+    </div>
+</section>
+<!-- blog details part end -->
+
+@@include('blocks/footer.htm')
+@@include('footer.htm')
