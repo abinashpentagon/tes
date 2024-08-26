@@ -1,0 +1,157 @@
+<ul class="toc">
+
+    <div class="tooltip-container">
+        <li><a href="#">Introduction to Stock Market</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Stock market overview</a></li>
+                <li><a href="#">Stock exchange</a></li>
+                <li><a href="#">Key stock market terms</a></li>
+            </ul>
+        </li>
+    </div>
+
+
+    <div class="tooltip-container">
+        <li><a href="#">Investment Vehicles</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">IPO</a></li>
+                <li><a href="#">ETF</a></li>
+                <li><a href="#">Mutual Funds</a></li>
+                <li><a href="#">Bonds</a></li>
+                <li><a href="#">Index Funds</a></li>
+                <li><a href="#">Bees</a></li>
+            </ul>
+        </li>
+    </div>
+    <div class="tooltip-container">
+        <li><a href="#">Technical Analysis</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Candle Stick Pattern</a></li>
+                <li><a href="#">Chart Pattern</a></li>
+                <li><a href="#">Volumes</a></li>
+                <li><a href="#">Indicators</a></li>
+                <li><a href="#">FVG</a></li>
+                <li><a href="#">BOS</a></li>
+                <li><a href="#">COCH</a></li>
+                <li><a href="#">Support and Resistance</a></li>
+            </ul>
+
+        </li>
+    </div>
+    <div class="tooltip-container">
+
+        <li><a href="#">Fundamental Analysis</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">PE Ratio</a></li>
+                <li><a href="#">ROE</a></li>
+                <li><a href="#">Earnings Report</a></li>
+                <li><a href="#">Debt to Equity Ratio</a></li>
+            </ul>
+        </li>
+    </div>
+    <div class="tooltip-container">
+        <li><a href="#">Option Trading</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Introduction</a></li>
+                <li><a href="#">CE</a></li>
+                <li><a href="#">PE</a></li>
+                <li><a href="#">OI</a></li>
+                <li><a href="#">Contracts and Expiry</a></li>
+                <li><a href="#">Strategies</a></li>
+                <li><a href="#">Option Greeks</a></li>
+            </ul>
+        </li>
+    </div>
+
+    <div class="tooltip-container">
+        <li><a href="#">Types of Orders</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Market Order</a></li>
+                <li><a href="#">Limit Order</a></li>
+                <li><a href="#">Stop Loss Order</a></li>
+                <li><a href="#">GTT Order</a></li>
+                <li><a href="#">Stop Limit Order</a></li>
+            </ul>
+        </li>
+    </div>
+
+    <div class="tooltip-container">
+        <li><a href="#">Risk Management</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Stop Loss</a></li>
+                <li><a href="#">Position Sizing</a></li>
+                <li><a href="#">Hedging</a></li>
+                <li><a href="#">Portfolio Diversification</a></li>
+                <li><a href="#">Risk to Reward Ratio</a></li>
+            </ul>
+        </li>
+    </div>
+
+    <div class="tooltip-container">
+        <li><a href="#">Types of Trading</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Scalping</a></li>
+                <li><a href="#">Intraday</a></li>
+                <li><a href="#">Positional</a></li>
+                <li><a href="#">Long term</a></li>
+                <li><a href="#">Swing</a></li>
+            </ul>
+        </li>
+    </div>
+
+    <div class="tooltip-container">
+        <li><a href="#">Algo Trading</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Basics of Algo Trading</a></li>
+                <li><a href="#">Backtesting Strageies</a></li>
+            </ul>
+        </li>
+    </div>
+
+    <div class="tooltip-container">
+        <li><a href="#">Dividend</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Types of Dividend</a></li>
+                <li><a href="#">Dividend Yield</a></li>
+            </ul>
+        </li>
+    </div>
+
+    <div class="tooltip-container">
+        <li><a href="#">Crypto</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Introduction to Cryptocurrencies</a></li>
+                <li><a href="#">Blockchain Technology</a></li>
+                <li><a href="#">Major Crypto Currencies</a></li>
+            </ul>
+        </li>
+    </div>
+
+    <div class="tooltip-container">
+        <li><a href="#">Forex</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Introduction to Forex</a></li>
+                <li><a href="#">Major Currency pairs</a></li>
+            </ul>
+        </li>
+    </div>
+
+    <div class="tooltip-container">
+        <li><a href="#">Commodity</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Introduction to Commodity</a></li>
+                <li><a href="#">Types of Commodities</a></li>
+            </ul>
+        </li>
+
+    </div>
+    <div class="tooltip-container">
+        <li><a href="#">Trading Psychology</a>
+            <ul class="tooltip-toc">
+                <li><a href="#">Managing Emotions</a></li>
+                <li><a href="#">Developing Trading Plan</a></li>
+                <li><a href="#">Discipline and Patience</a></li>
+            </ul>
+        </li>
+    </div>
+</ul>
