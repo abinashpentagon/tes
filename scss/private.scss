@@ -1,0 +1,990 @@
+// // .right-arrow {
+// //     padding: 3px 10px;
+// //     font-size: 1.5rem;
+// //     border: none;
+// //     border-radius: 10%;
+// //     display: inline-block;
+// //     margin-right: 0;
+
+
+// // }
+
+// // .right-arrow:hover {
+// //     color: azure;
+// //     background-color: skyblue;
+// // }
+
+// // .heading-blog {
+// //     font-size: 20px;
+// //     color: #111;
+// // }
+
+
+// .content {
+//     display: flex;
+//     justify-content: space-around;
+//     flex-direction: column;
+//     margin-top: 5px;
+
+// }
+
+// .date {
+//     font-size: 13px;
+// }
+
+// .media-wrapper img {
+//     border-radius: 10px;
+
+// }
+
+// .post-item a {
+//     display: inherit;
+// }
+
+// .r-more {
+
+//     text-align: right;
+
+
+//     a {
+//         text-decoration: underline;
+
+//     }
+// }
+
+
+// // table of contents
+// .container {
+//     position: relative;
+
+// }
+
+// /* Styling for the TOC Wrapper */
+// .toc-wrapper {
+//     margin: auto;
+//     animation: slideInOut 2s ease-in-out;
+
+//     border-radius: 10%;
+//     position: -webkit-sticky;
+//     /* For Safari */
+//     position: sticky;
+//     /* Standard syntax */
+//     top: 135px;
+//     /* Sticks the TOC to the top of the viewport */
+//     /* Removed: left: 0; */
+//     padding: 1.3rem;
+//     background-color: #f8f9fa;
+//     border: 1px solid #ddd;
+//     border-radius: 5px;
+//     z-index: 10;
+//     /* Ensures the TOC stays on top of other content */
+
+//     /* Full height of viewport minus some margin */
+//     overflow-y: auto;
+//     /* Allows scrolling if content is too long */
+//     margin: 0;
+//     /* Center the TOC horizontally */
+//     width: 250px;
+
+
+//     li a {
+//         color: rgb(114, 113, 113);
+//         font-size: 0.9rem;
+//     }
+
+
+
+
+// }
+
+// @keyframes slideInOut {
+//     0% {
+//         opacity: 0;
+//         visibility: visible;
+//         transform: translateY(-200px);
+//     }
+
+//     50% {
+//         opacity: 0.5;
+//         visibility: visible;
+//         transform: translateY(0);
+//     }
+
+//     100% {
+//         opacity: 1;
+//         visibility: visible;
+//         transform: translateY(0);
+//     }
+// }
+
+// /* Styling for the Table of Contents */
+// .toc {
+//     list-style: none;
+//     padding-left: 0;
+// }
+
+// .toc a {
+//     text-decoration: none;
+//     color: #007bff;
+// }
+
+// .toc a:hover {
+//     text-decoration: underline;
+// }
+
+// .toc ul {
+//     padding-left: 20px;
+// }
+
+// .toc h3 {
+//     font-size: 1.25rem;
+//     margin-bottom: 1rem;
+// }
+
+// .toc ul li {
+//     scroll-margin: 100px;
+// }
+
+// .toc-wrapper h4 {
+//     text-align: center;
+//     margin-bottom: 0.8rem;
+// }
+
+// .toc-wrapper ul li {
+//     margin-top: 0.4rem;
+//     margin-bottom: 0.4rem;
+// }
+
+
+
+// .tooltip-toc {
+//     list-style: circle;
+//     font-size: 0.95rem;
+//     margin-left: 5px;
+
+
+// }
+
+// .tooltip-container {
+//     margin: 4px auto;
+// }
+
+// // button sign in
+// #sign-in {
+//     --primary-color: #645bff;
+//     --secondary-color: #fff;
+//     --hover-color: #111;
+//     --arrow-width: 10px;
+//     --arrow-stroke: 2px;
+//     box-sizing: border-box;
+//     border: 0;
+//     border-radius: 20px;
+//     color: var(--secondary-color);
+//     padding: 1em 1.8em;
+//     background: var(--primary-color);
+//     display: flex;
+//     transition: 0.2s background;
+//     align-items: center;
+//     gap: 0.6em;
+//     font-weight: bold;
+
+// }
+
+// #sign-in .arrow-wrapper {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// #sign-in .arrow {
+//     margin-top: 1px;
+//     width: var(--arrow-width);
+//     background: var(--primary-color);
+//     height: var(--arrow-stroke);
+//     position: relative;
+//     transition: 0.2s;
+// }
+
+// #sign-in .arrow::before {
+//     content: "";
+//     box-sizing: border-box;
+//     position: absolute;
+//     border: solid var(--secondary-color);
+//     border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+//     display: inline-block;
+//     top: -3px;
+//     right: 3px;
+//     transition: 0.2s;
+//     padding: 3px;
+//     transform: rotate(-45deg);
+// }
+
+// #sign-in:hover {
+//     background-color: var(--hover-color);
+// }
+
+// #sign-in:hover .arrow {
+//     background: var(--secondary-color);
+// }
+
+// #sign-in:hover .arrow:before {
+//     right: 0;
+// }
+
+// // #sign-in {
+// //     height: 40px;
+// //     width: 130px;
+// //     text-align: center;
+
+// // }
+// .navbar {
+
+//     h1,
+//     li,
+//     a,
+//     button {
+//         line-height: 5px;
+//         margin: auto 0;
+//     }
+// }
+
+
+
+// .container-blog {
+//     width: 95vw;
+//     display: inline;
+//     display: flex;
+// }
+
+// .frame-column1 {
+//     flex: 1;
+//     /* Adjust height as needed */
+//     width: 13vw;
+//     padding: 0;
+
+// }
+
+// .frame-column2 {
+//     flex: 2;
+
+//     width: 73vw;
+
+// }
+
+// .frame-column3 {
+//     flex: 1;
+//     /* Adjust height as needed */
+//     width: 13vw;
+
+
+// }
+
+
+// .active-toc {
+
+//     background-color: #aeabec;
+//     color: #ddd;
+//     padding: 1px auto;
+//     border-radius: 5px;
+
+
+// }
+
+// li.active-toc a {
+//     color: white;
+//     margin-left: 15px;
+
+
+// }
+
+
+
+
+// #toc-wrapper li:hover {
+//     background-color: #645bff;
+//     color: #ddd;
+//     padding-right: 1px;
+
+// }
+
+
+
+
+
+// #toc a.active {
+//     font-weight: bold;
+//     color: #000;
+//     background-color: var(--primary-color);
+// }
+
+// #retail-investors {
+//     scroll-margin-top: 150px;
+// }
+
+// .hide {
+//     display: none;
+// }
+
+// .post-content section {
+//     position: relative;
+//     padding-top: 100px;
+//     /* Example padding */
+//     margin-top: -100px;
+// }
+
+// // @media only screen and (max-width:1100px) {
+// //     .frame-column1 {
+// //         display: none;
+// //     }
+
+
+// //     .frame-column3 {
+// //         display: none;
+// //     }
+
+// //     .frame-column2 {
+// //         width: 90vw;
+// //         margin: 5vw;
+// //     }
+// // }
+
+// // //community styles
+// // .community {
+// //     display: flex;
+// //     margin: 1vw;
+
+// //     flex-direction: row;
+// //     height: 100vh;
+
+
+// // }
+
+// // #user {
+
+// //     flex: 1;
+// // }
+
+// // #post {
+
+// //     flex: 3;
+// // }
+
+// // #trend {
+
+// //     flex: 1;
+// // }
+
+// // .card-user {
+// //     border: 2px solid gray;
+// //     padding: 10px;
+// //     margin: 5px;
+// //     border-radius: 12px;
+// // }
+
+// // /* General Community Layout */
+// // .community {
+// //     display: flex;
+// //     margin: 20px;
+// //     flex-direction: row;
+// //     min-height: 100vh;
+// // }
+
+// // #user,
+// // #post,
+// // #trend {
+// //     padding: 10px;
+// //     border-radius: 12px;
+// // }
+
+// // #user {
+// //     flex: 1;
+// // }
+
+// // #post {
+// //     flex: 3;
+// // }
+
+// // #trend {
+// //     flex: 1;
+// // }
+
+// // /* Card User Styles */
+// // .card-user {
+// //     border: 1px solid #ddd;
+// //     padding: 15px;
+// //     margin-bottom: 20px;
+// //     border-radius: 12px;
+// //     background-color: #fff;
+// //     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// // }
+
+// // // /whats on your mind?/
+// // .pricing {
+// //     border: 1px solid #ddd;
+// //     height: auto;
+// //     width: 100%;
+// //     background-color: #f0f0f0;
+
+// //     padding: 20px;
+// //     border-radius: 12px;
+// //     display: flex;
+// //     flex-direction: column;
+// //     align-items: center;
+// //     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+// //     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+
+// // }
+
+// // .pricingButon {
+// //     margin-top: 20px;
+// //     margin-bottom: 20px;
+// //     width: 80vh;
+// //     padding: 10px;
+// //     background-color: #202020;
+
+// //     color: #ffffff;
+// //     border: none;
+// //     border-radius: 8px;
+// //     font-size: 1rem;
+// //     cursor: pointer;
+// //     justify-content: center;
+// // }
+
+// // .pricingButon:hover {
+// //     background-color: #404040;
+// // }
+
+// // .innerDiv {
+// //     display: flex;
+// //     flex-direction: row;
+// //     align-items: center;
+// // }
+
+// // // /* Responsive Adjustments */
+// // // @media only screen and (max-width: 1100px) {
+// // //     .community {
+// // //         flex-direction: column;
+// // //     }
+// // // }
+
+// // // .avatar {
+// // //     vertical-align: middle;
+// // //     width: 50px;
+// // //     height: 50px;
+// // //     border-radius: 50%;
+// // // }
+
+// // //card profile
+// // @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+// // .card-container {
+// //     width: 280px;
+// //     height: 410px;
+// //     background: #FFF;
+
+// //     background-color: #f0f0f0;
+// //     border-radius: 6px;
+// //     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+// //     overflow: hidden;
+// //     display: inline-block;
+// // }
+
+// // .upper-container {
+// //     height: 150px;
+// //     background-color: #202020;
+// // }
+
+// // .image-container {
+// //     background: white;
+
+// //     background-color: #f0f0f0;
+// //     width: 80px;
+// //     height: 80px;
+// //     border-radius: 50%;
+
+// //     transform: translate(100px, 100px);
+// //     // border: 1px solid blue;
+// // }
+
+// // .image-container img {
+// //     width: 80px;
+// //     height: 80px;
+// //     border-radius: 50%;
+// // }
+
+// // .lower-container {
+// //     height: 280px;
+// //     background: #FFF;
+// //     padding: 20px;
+// //     padding-top: 40px;
+// //     text-align: center;
+
+// //     background-color: #f0f0f0;
+// // }
+
+// // .lower-container h3 {
+// //     box-sizing: border-box;
+// //     line-height: .4;
+// //     font-weight: 900;
+// //     margin-bottom: 5px;
+// //     margin-top: 10px;
+// // }
+
+// // .lower-container p {
+// //     font-size: 16px;
+// //     color: rgb(118, 101, 159);
+// //     margin-bottom: 30px;
+// // }
+
+// // .lower-container .btn {
+// //     padding: 12px 20px;
+// //     background-color: #202020;
+
+
+// //     border: none;
+// //     color: white;
+// //     border-radius: 30px;
+// //     font-size: 12px;
+// //     text-decoration: none;
+// //     font-weight: bold;
+// //     letter-spacing: 1px;
+// //     transition: all .3s ease-in;
+// // }
+
+// // .lower-container .btn:hover {
+// //     background: transparent;
+// //     color: #202020;
+// //     border: 2px solid #202020;
+
+// // }
+
+// // //trend
+// // .card-user {
+// //     border: 1px solid gray;
+// //     padding: 20px;
+// //     margin: 5px;
+// //     border-radius: 12px;
+// //     background-color: #f0f0f0;
+// //     display: flex;
+// //     flex-direction: column;
+// //     align-items: center;
+// //     justify-content: space-between;
+// //     border: none;
+// //     gap: 1rem;
+// //     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+
+
+// // }
+
+// //community styles
+
+// .community {
+//     display: flex;
+
+//     flex-direction: row;
+// }
+
+// #user {
+//     flex: 2;
+//     margin: 0 5px;
+
+// }
+
+// #post {
+
+//     flex: 5;
+//     margin: 0 5px;
+// }
+
+// #trend {
+//     flex: 2;
+//     display: flex;
+//     flex-direction: column;
+//     margin: 0 5px;
+
+//     align-items: center;
+// }
+
+// /* General Community Layout */
+// .community {
+//     display: flex;
+//     margin: 20px;
+//     flex-direction: row;
+//     min-height: 100vh;
+// }
+
+
+
+
+
+
+// .pricing {
+//     border: 1px solid #ddd;
+//     height: auto;
+//     width: 100%;
+//     background-color: #fff;
+
+//     padding: 20px;
+//     border-radius: 12px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// }
+
+// .pricingButon {
+
+//     width: 50vw;
+//     padding: 10px;
+//     background-color: #1b1b1b;
+//     color: #ffffff;
+//     border: none;
+//     border-radius: 8px;
+//     font-size: 1rem;
+//     cursor: pointer;
+//     justify-content: center;
+// }
+
+// .pricingButon:hover {
+//     background-color: #404040;
+// }
+
+// .innerDiv {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+// }
+
+// .user-container {
+//     margin: 5px 0;
+
+
+
+// }
+
+// /* Responsive Adjustments */
+
+
+// .avatar {
+//     vertical-align: middle;
+//     width: 50px;
+//     height: 50px;
+//     border-radius: 50%;
+// }
+
+// .avatar-small {
+//     vertical-align: middle;
+//     width: 25px;
+//     height: 25px;
+//     border-radius: 50%;
+// }
+
+// //card profile
+// @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+// .card-container {
+
+//     height: 430px;
+//     background: #FFF;
+//     border-radius: 6px;
+//     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+//     overflow: hidden;
+//     display: inline-block;
+//     position: relative;
+//     background: #fff;
+//     z-index: 1000;
+//     /* Ensure it stays on top of other elements */
+// }
+
+// .upper-container {
+//     height: 150px;
+//     background-color: #1b1b1b;
+// }
+
+// .image-container {
+//     background: white;
+//     width: 80px;
+//     height: 80px;
+//     border-radius: 50%;
+//     padding: 5px;
+//     transform: translate(80px, 110px);
+
+
+// }
+
+// .image-container img {
+//     width: 80px;
+//     height: 80px;
+//     border-radius: 50%;
+// }
+
+// .lower-container {
+//     height: 280px;
+//     background: #FFF;
+//     padding: 20px;
+//     padding-top: 40px;
+//     text-align: center;
+// }
+
+// .lower-container h3 {
+//     box-sizing: border-box;
+//     line-height: .4;
+//     font-weight: 900;
+//     margin-bottom: 5px;
+//     margin-top: 10px;
+// }
+
+// .lower-container p {
+//     font-size: 16px;
+//     color: rgb(118, 101, 159);
+//     margin-bottom: 30px;
+// }
+
+// .lower-container .btn {
+//     padding: 12px 20px;
+//     background-color: #1b1b1b;
+//     border: none;
+//     color: white;
+//     border-radius: 30px;
+//     font-size: 12px;
+//     text-decoration: none;
+//     font-weight: bold;
+//     letter-spacing: 1px;
+//     transition: all .3s ease-in;
+// }
+
+// .lower-container .btn:hover {
+//     background: transparent;
+//     color: #1b1b1b;
+//     border: 2px solid #1b1b1b;
+// }
+
+// //trend
+// .trending-posts {
+//     border: 1px solid gray;
+//     padding: 10px;
+
+//     margin: 5px 0;
+//     border-radius: 12px;
+//     background-color: #f0f0f0;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-between;
+//     border: none;
+//     gap: 1rem;
+//     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+//     background: #fff;
+
+//     /* Ensure it stays on top of other elements */
+// }
+
+// .trending {
+//     display: flex;
+//     flex-direction: row;
+
+
+//     h4 {
+//         margin-top: 5px;
+//         margin-bottom: 5px;
+//     }
+
+// }
+
+// #trendArrow {
+//     position: relative;
+//     top: 15px;
+//     margin-left: 10px;
+// }
+
+// @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+// .post-card {
+//     margin-top: 20px;
+//     height: auto;
+//     width: auto;
+//     background: #fff;
+//     border-radius: 1.5rem;
+//     padding: 1.5rem;
+//     position: relative;
+//     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+// }
+
+
+// .card-img-holder {
+//     width: 100%;
+//     height: auto;
+//     position: relative;
+// }
+
+// .card-img-holder img {
+//     width: 100%;
+//     height: auto;
+//     max-height: 15rem;
+//     object-fit: cover;
+//     border-radius: 1.5rem;
+// }
+
+// .blog-title {
+//     color: #22215B;
+//     padding: 1rem 0;
+//     font-size: 1.5rem;
+//     margin-bottom: 0;
+// }
+
+// .description {
+//     padding: 1rem 0;
+//     color: #22215B80;
+//     font-size: 1rem;
+//     margin: 0;
+// }
+
+// .blog-time {
+//     font-size: .8rem;
+//     color: #22215B;
+// }
+
+// .btn {
+//     font-size: 1rem;
+//     padding: .5rem 1rem;
+//     border-radius: .5rem;
+//     font-weight: 400;
+//     background: #EEF7FE;
+//     color: #22215B;
+//     cursor: pointer;
+// }
+
+// .options {
+//     display: flex;
+//     gap: 10px;
+// }
+
+// //comment
+// .comment-container {
+//     background: #ffffff;
+//     border-radius: 8px;
+//     width: 500px;
+//     padding: 16px;
+//     display: flex;
+//     align-items: flex-start;
+//     gap: 8px;
+// }
+
+// .comment-icon {
+//     height: 50px;
+
+
+//     display: flex;
+//     align-items: center;
+
+//     justify-content: center;
+//     margin: 0 10px;
+
+// }
+
+// .comment-box {
+//     flex: 1;
+//     padding: 12px;
+//     border: 1px solid #ced4da;
+//     border-radius: 4px;
+//     resize: none;
+//     height: 50px;
+//     font-size: 16px;
+//     color: #495057;
+//     box-sizing: border-box;
+// }
+
+// .postcomment {
+//     background-color: #1b1b1b;
+//     color: white;
+//     border: none;
+//     border-radius: 4px;
+//     width: 60px;
+//     height: 50px;
+//     cursor: pointer;
+//     font-size: 16px;
+//     margin-left: 8px;
+//     transition: background-color 0.2s ease;
+// }
+
+// .postcomment:hover {
+//     background-color: #696a6c;
+// }
+
+// #like {
+//     font-size: large;
+// }
+
+// #comment {
+//     font-size: large;
+// }
+
+
+// .post-card-community {
+//     width: 50vw;
+//     margin: 2vw auto;
+//     border-radius: 15px;
+//     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+//     padding: 10px;
+// }
+
+// .community_admin-container {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     flex-direction: column;
+// }
+
+// .card-small {
+//     display: none;
+// }
+
+
+// //responsive community
+// @media only screen and (max-width: 1100px) {
+//     .community {
+//         flex-direction: column;
+//     }
+
+
+//     .card-container {
+//         display: none;
+//     }
+
+//     .card-small {
+//         display: flex;
+//         justify-content: space-around;
+//         gap: 3rem;
+//         padding: 1rem;
+//         margin: 1rem;
+//         border-radius: 1.5rem;
+//         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+//         line-height: 20px;
+
+
+
+
+//         .btn {
+//             padding: 12px 20px;
+//             background-color: #1b1b1b;
+//             border: none;
+//             color: white;
+//             border-radius: 30px;
+//             font-size: 12px;
+//             text-decoration: none;
+//             font-weight: bold;
+//             letter-spacing: 1px;
+//             transition: all .3s ease-in;
+//         }
+
+//         .btn:hover {
+//             background: transparent;
+//             color: #1b1b1b;
+//             border: 2px solid #1b1b1b;
+//         }
+
+//     }
+// }

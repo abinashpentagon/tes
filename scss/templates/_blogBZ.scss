@@ -1,0 +1,407 @@
+//blog
+
+
+
+
+
+
+
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 5px;
+
+}
+
+.date {
+    font-size: 13px;
+}
+
+.media-wrapper img {
+    border-radius: 10px;
+
+}
+
+.post-item a {
+    display: inherit;
+}
+
+.r-more {
+
+    text-align: right;
+
+
+    a {
+        text-decoration: underline;
+
+    }
+}
+
+
+// table of contents
+.container {
+    position: relative;
+
+}
+
+/* Styling for the TOC Wrapper */
+.toc-wrapper {
+    margin: auto;
+    animation: slideInOut 2s ease-in-out;
+
+    border-radius: 10%;
+    position: -webkit-sticky;
+    /* For Safari */
+    position: sticky;
+    /* Standard syntax */
+    top: 135px;
+    /* Sticks the TOC to the top of the viewport */
+    /* Removed: left: 0; */
+    padding: 1.3rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    z-index: 10;
+    /* Ensures the TOC stays on top of other content */
+
+    /* Full height of viewport minus some margin */
+    overflow-y: auto;
+    /* Allows scrolling if content is too long */
+    margin: 0;
+    /* Center the TOC horizontally */
+    width: 250px;
+
+
+    li a {
+        color: rgb(114, 113, 113);
+        font-size: 0.9rem;
+    }
+
+
+
+
+}
+
+@keyframes slideInOut {
+    0% {
+        opacity: 0;
+        visibility: visible;
+        transform: translateY(-200px);
+    }
+
+    50% {
+        opacity: 0.5;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for the Table of Contents */
+.toc {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.toc a:hover {
+    text-decoration: underline;
+}
+
+.toc ul {
+    padding-left: 20px;
+}
+
+.toc h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.toc ul li {
+    scroll-margin: 100px;
+}
+
+.toc-wrapper h4 {
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+.toc-wrapper ul li {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+
+
+.tooltip-toc {
+    list-style: circle;
+    font-size: 0.95rem;
+    margin-left: 5px;
+
+
+}
+
+.tooltip-container {
+    margin: 4px auto;
+}
+
+// button sign in
+#sign-in {
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+
+}
+
+#sign-in .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sign-in .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+#sign-in .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+#sign-in:hover {
+    background-color: var(--hover-color);
+}
+
+#sign-in:hover .arrow {
+    background: var(--secondary-color);
+}
+
+#sign-in:hover .arrow:before {
+    right: 0;
+}
+
+// #sign-in {
+//     height: 40px;
+//     width: 130px;
+//     text-align: center;
+
+// }
+.navbar {
+
+    h1,
+    li,
+    a,
+    button {
+        line-height: 5px;
+        margin: auto 0;
+    }
+}
+
+
+
+.container-blog {
+    width: 95vw;
+    display: inline;
+    display: flex;
+}
+
+.frame-column1 {
+    flex: 1;
+    /* Adjust height as needed */
+    width: 13vw;
+    padding: 0;
+
+}
+
+.frame-column2 {
+    flex: 2;
+
+    width: 73vw;
+
+}
+
+.frame-column3 {
+    flex: 1;
+    /* Adjust height as needed */
+    width: 13vw;
+
+
+}
+
+
+.active-toc {
+
+    background-color: #aeabec;
+    color: #ddd;
+    padding: 1px auto;
+    border-radius: 5px;
+
+
+}
+
+li.active-toc a {
+    color: white;
+    margin-left: 15px;
+
+
+}
+
+
+
+
+#toc-wrapper li:hover {
+    background-color: #645bff;
+    color: #ddd;
+    padding-right: 1px;
+
+}
+
+
+
+
+
+#toc a.active {
+    font-weight: bold;
+    color: #000;
+    background-color: var(--primary-color);
+}
+
+#retail-investors {
+    scroll-margin-top: 150px;
+}
+
+.hide {
+    display: none;
+}
+
+.post-content section {
+    position: relative;
+    padding-top: 100px;
+    /* Example padding */
+    margin-top: -100px;
+}
+#read-more
+{
+  text-decoration: underline;
+  color: #007bff;
+}
+
+.container-blog {
+    width: 95vw;
+    display: inline;
+    display: flex;
+}
+
+.frame-column1 {
+    flex: 1;
+    /* Adjust height as needed */
+    width: 13vw;
+    padding: 0;
+
+}
+
+.frame-column2 {
+    flex: 2;
+
+    width: 73vw;
+
+}
+
+.frame-column3 {
+    flex: 1;
+    /* Adjust height as needed */
+    width: 13vw;
+
+
+}
+
+
+.active-toc {
+
+    background-color: #aeabec;
+    color: #ddd;
+    padding: 1px auto;
+    border-radius: 5px;
+
+
+}
+
+li.active-toc a {
+    color: white;
+    margin-left: 15px;
+
+
+}
+
+
+
+
+#toc-wrapper li:hover {
+    background-color: #645bff;
+    color: #ddd;
+    padding-right: 1px;
+
+}
+
+
+
+
+
+#toc a.active {
+    font-weight: bold;
+    color: #000;
+    background-color: var(--primary-color);
+}
+
+#retail-investors {
+    scroll-margin-top: 150px;
+}
+
+.hide {
+    display: none;
+}
+
+.post-content section {
+    position: relative;
+    padding-top: 100px;
+    /* Example padding */
+    margin-top: -100px;
+}

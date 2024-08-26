@@ -1,0 +1,205 @@
+<main class="community">
+	<section id="user">
+
+		<div class="card-small">
+			<img
+				src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fimg-file&psig=AOvVaw1I53xtykinAfADyS95ub_g&ust=1722921085622000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMiy66uL3YcDFQAAAAAdAAAAABAE">
+			<!-- <p>Abinash S</p> -->
+			<div>
+				<a href="" class="btn">View profile</a>
+			</div>
+
+
+		</div>
+
+		<div class="card-container">
+
+			<div class="upper-container">
+				<div class="image-container">
+					{% if myuser.profile_pic %}
+                <img src="data:image/jpeg;base64,{{ myuser.profile_pic | b64encode }}" alt="Profile Picture">
+            {% endif %}
+				</div>
+			</div>
+
+			<div class="lower-container">
+				<div>
+					<h3>{{ myuser.username }}</h3>
+					<br>
+				</div>
+				<div>
+					<p>Email: {{ myuser.email }}</p>
+            		<p>Phone: {{ myuser.phoneno }}</p>
+				</div>
+				<div>
+					<a href="/profilee" class="btn">View profile</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="post">
+		<div class="pricing">
+			<br>
+			<div class="innerDiv">
+				<img src="{{ url_for('static', filename='profile.png') }}" href="/profilee" alt="Avatar" class="avatar">
+				<button href="/post" class="pricingButon">
+					What's on your mind?
+				</button>
+			</div>
+			<br>
+		</div>
+		<div class="post-card">
+			{% for post in posts %}
+			<div class="card-img-holder">
+				{% for user in users %}
+            	{% if user.username == post.username %}
+				<div class="user-container">
+					<img src="data:profile_pic/jpeg;base64,{{ user.profile_pic | b64encode }}" class="avatar-small">
+					<a style="font-size: large;">{{ post.username }}</a>
+				</div>
+				{% endif %}
+                {% endfor %}	
+				{% if post.image %}
+				<img src="data:image/jpeg;base64,{{ post.image|b64encode }}" alt="Post Image">
+				{% endif %}
+		
+			</div>
+			<h3 class="blog-title">{{ post.post_title }}</h3>
+			<span class="blog-time">Posted on: {{ post.post_date }}</span>
+			
+			<p class="description">
+				{{ post.post_content }}
+				<br>
+				Posted by: {{ post.username }}
+			</p>
+			<div class="options">
+				<div class="comment-container">
+					<div class="comment-icon">
+						<i class="fa-regular fa-thumbs-up" id="like" data-post-id="{{ post.post_id }}"></i>
+						
+					</div>
+					<div class="comment-icon">
+						<i class="fa-regular fa-comment" id="comment"></i>
+					</div>
+					<!-- <textarea class="comment-box" placeholder="Write a comment..."></textarea>
+					<button class="postcomment">Post</button> -->
+
+					<div class="comment-form">
+						<form class="add-comment-form" action="/addcomment" method="POST">
+							<input type="hidden" name="post_id" value="{{ post.post_id }}">
+							<textarea name="comment_content" placeholder="Write your comment..."></textarea>
+							<button type="submit">Add Comment</button>
+						</form>
+					</div>
+
+					<p>Likes: <span id="like-count-{{ post.post_id }}">{{ like_counts.get(post.post_id, 0) }}</span></p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="post-card">
+			<div class="card-img-holder">
+
+				<div class="user-container">
+					<img src="/source/images/man.webp" class="avatar-small">
+					<a style="font-size: large;">Abinash</a>
+				</div>
+
+				<img src="https://images.unsplash.com/photo-1640102953836-5651f5d6b240?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1024&q=80"
+					alt="Blog image">
+			</div>
+			<h3 class="blog-title">Learn Microinteraction</h3>
+			<span class="blog-time">Posted on Monday Jan 20, 2020</span>
+			<p class="description">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis viverra turpis, non cursus ex
+				accumsan at.
+			</p>
+			<div class="options">
+				<div class="comment-container">
+					<div class="comment-icon">
+						<i class="fa-regular fa-thumbs-up" id="like"></i>
+					</div>
+					<div class="comment-icon">
+						<i class="fa-regular fa-comment" id="comment"></i>
+					</div>
+					<textarea class="comment-box" placeholder="Write a comment..."></textarea>
+					<button class="postcomment">Post</button>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<!-- Buy me a coffe script -->
+
+	<section id="trend">
+		<div class="trending">
+			<h4>Top posts</h4><i class="fa-solid fa-arrow-trend-up" id="trendArrow"></i>
+		</div>
+		<article class="trending-posts">
+			<ul>
+				<li><img src="/source/images/man.webp" class="avatar-small">
+					<a href="">Introduction</a>
+				</li>
+			</ul>
+		</article>
+		<article class="trending-posts">
+			<ul>
+				<li><img src="/source/images/man.webp" class="avatar-small">
+					<a href="">Introduction</a>
+				</li>
+			</ul>
+		</article>
+		<article class="trending-posts">
+			<ul>
+				<li><img src="/source/images/man.webp" class="avatar-small">
+					<a href="">Introduction</a>
+				</li>
+			</ul>
+		</article>
+		<div class="trending">
+			<h4>Top comments</h4><i class="fa-solid fa-arrow-trend-up" id="trendArrow"></i>
+		</div>
+		<article class="trending-posts">
+			<ul>
+				<li><img src="/source/images/man.webp" class="avatar-small">
+					<a href="">Good!</a>
+				</li>
+			</ul>
+		</article>
+		<article class="trending-posts">
+			<ul>
+				<li><img src="/source/images/man.webp" class="avatar-small">
+					<a href="">Great</a>
+				</li>
+			</ul>
+		</article>
+	</section>
+</main>
+<!-- <button id="getDataBtn">Get Data</button>
+<div id="dataContainer"></div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		document.getElementById('getDataBtn').addEventListener('click', function () {
+			console.log("hi");
+			fetch('http://127.0.0.1:5000/get-data')
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.json();
+				})
+				.then(data => {
+					let output = '<ul>';
+					data.forEach(item => {
+						output += `<li>${item.name}</li>`;
+					});
+					output += '</ul>';
+					document.getElementById('dataContainer').innerHTML = output;
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+		});
+	});
+</script> -->
